@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for activity in activities %}
+    <hr>
+        {{ activity.category_type }}
+        <hr>
+        {{ activity.activity_name }}
+        <hr>
+        {{ activity.activity_outcome }}
+        <hr>
+        {{ activity.description }}
+        <hr>
+        {{ activity.necessities }}
+    {% endfor %}
+{% endblock %}    
+
+    
