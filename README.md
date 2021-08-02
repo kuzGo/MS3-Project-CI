@@ -1,2 +1,2 @@
-
-(jQuery Core 3.6.0)[https://code.jquery.com/]
+[jQuery](https://code.jquery.com/)
+ [RandomKeygen](https://randomkeygen.com/)
