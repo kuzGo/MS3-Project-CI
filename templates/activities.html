@@ -1,16 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
     {% for activity in activities %}
-    <hr>
-        {{ activity.category_type }}
-        <hr>
-        {{ activity.activity_name }}
-        <hr>
-        {{ activity.activity_outcome }}
-        <hr>
-        {{ activity.description }}
-        <hr>
-        {{ activity.necessities }}
+    
+        <div class="row">
+            <div class="col s12 m4">
+              <div class="card">
+                <div class="card-image">
+                  <img src="{{ url_for('static',filename='images/hero1.jpg') }}">
+                  <span class="card-title">{{ activity.activity_name }}</span>
+                  <a class="btn-floating halfway-fab waves-effect waves-light red darken-3"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <p> 
+                        <i class="material-icons">list</i>{{ activity.category_type }}
+                    </p>
+                  <p><i class="material-icons">toys</i>{{ activity.necessities }}</p>
+                  <p><i class="material-icons">library_books</i>{{ activity.description }}</p>
+                  <p><i class="material-icons">school</i>{{ activity.activity_outcome }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
     {% endfor %}
 {% endblock %}    
 
