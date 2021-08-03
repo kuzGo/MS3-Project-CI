@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='images/logo.png')}}"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
@@ -15,8 +16,11 @@
 </head>
 <header>
     <nav>
-        <div class="nav-wrapper">
-          <a href="{{ url_for('home')}}" class="brand-logo">Logo</a>
+        <div class="nav-wrapper red darken-3">
+          <a href="{{ url_for('home')}}" class="brand-logo">
+            <img src="{{ url_for('static',filename='images/logo.png') }}" class="logo" alt="Website Logo">
+          </a>
+          
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="{{ url_for('home')}}">Home</a></li>
