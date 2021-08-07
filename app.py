@@ -32,7 +32,46 @@ def get_activities():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        current_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if current_user:
+            flash(
+                "This username is already exists,try different username")
+            return redirect(url_for("register"))
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(
+                request.form.get(
+                    "password"), method='pbkdf2:sha256', salt_length=16)
+        }
+
+        mongo.db.users.insert_one(register)
+
+        session["client"] = request.form.get("username").lower()
+        flash("You're sucessfuly registered")
+
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        registered_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if registered_user:
+            if check_password_hash(
+                    registered_user["password"], request.form.get("password")):
+                session["client"] = request.form.get("username")
+                flash("Welcome, {}".format(request.form.get("username")))
+            else:
+                flash("Password and/or username you entered is inncorect")
+                return redirect(url_for("login"))
+
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
