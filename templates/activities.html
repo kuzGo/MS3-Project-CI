@@ -1,26 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
     {% for activity in activities %}
-    
-        <div class="row">
-            <div class="col s12 m4">
-              <div class="card hoverable">
-                <div class="card-image">
-                  <img src="{{ url_for('static',filename='images/hero1.jpg') }}">
-                  <span class="card-title">{{ activity.activity_name }}</span>
-                  <a class="btn-floating halfway-fab waves-effect waves-light red darken-3"><i class="material-icons prefix">add</i></a>
-                </div>
-                <div class="card-content">
-                    <p> 
-                        <i class="material-icons prefix">list</i>{{ activity.category_type }}
-                    </p>
-                  <p><i class="material-icons prefix">toys</i>{{ activity.necessities }}</p>
-                  <p><i class="material-icons prefix">library_books</i>{{ activity.description }}</p>
-                  <p><i class="material-icons prefix">school</i>{{ activity.activity_outcome }}</p>
-                </div>
-              </div>
-            </div>
+    <div class="row col s12">
+      <h3>Add Activity</h3>
+      <a class="btn-floating btn-large waves-effect waves-light red darken-4" href="{{ url_for('upload')}}"><i
+          class="material-icons">add</i></a>
+    </div>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card hoverable">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{{ activity.image_url }}">
           </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{ activity.activity_name }}<i
+                class="material-icons right">more_vert</i></span>
+            <p><a href="#">This is a link</a></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{ activity.activity_name }}<i
+                class="material-icons right">close</i></span>
+            <p><i class="material-icons prefix">list</i>{{ activity.category_type }}</p>
+            <p><i class="material-icons prefix">toys</i>{{ activity.necessities }}</p>
+            <p><i class="material-icons prefix">library_books</i>{{ activity.description }}</p>
+            <p><i class="material-icons prefix">school</i>{{ activity.activity_outcome }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
     {% endfor %}
 {% endblock %}    
 

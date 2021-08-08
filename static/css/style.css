@@ -5,3 +5,15 @@
 .custom-icons {
     font-size: 18px!important;
 }
+
+.caption {
+    background-color: rgb(232,14,14,0.6);
+}
+.img-caption {
+    color: #131211;
+    line-height: 90%!important;
+}
+.nav-icons {
+    height: 30px;
+    width: 30px;
+}

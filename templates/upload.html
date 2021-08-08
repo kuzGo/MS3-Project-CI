@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="input-field col s12">
+    <select>
+        <option value="" selected>Select Activity Category</option>
+        <option value="">Option 1</option>
+    </select>
+</div>
+<div class="row">
+    <form action="" class="col s12">
+      <!-- Activity name inputs -->
+        <div class="input-field col s12">
+            <input placeholder="Activity Name" id="activity_name" name="activity_name" type="text" class="validate">
+            <label for="activity_name">Activity Name</label>
+          </div>
+          <!-- Activity nescessities inputs -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="necessities" name="necessities" class="materialize-textarea" ></textarea>
+                  <label for="necessities">e.g. toys,bowls,crayons</label>
+                </div>
+              </div>
+              <!-- Activity description inputs -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="description" name="description" class="materialize-textarea" ></textarea>
+                  <label for="description">Activity description</label>
+                </div>
+              </div>
+              <!-- Activity outcome inputs -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="activity_outcome" name="activity_outcome" class="materialize-textarea" ></textarea>
+                  <label for="activity_outcome">Activity outcome</label>
+                </div>
+              </div>
+              <!-- Image URL input -->
+              <div class="input-field col s12">
+            <input placeholder="Image URL" id="image_url" name="activity_name" type="text" class="validate">
+            <label for="image_url">Image URL</label>
+          </div>
+          
+            <button class="btn waves-effect waves-light red darken-4" type="submit" name="action">Add Activity
+              <i class="material-icons right">send</i>
+            </button>
+          
+    </form>
+</div>
+  
+{% endblock %}

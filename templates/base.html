@@ -21,15 +21,25 @@
                 <img src="{{ url_for('static',filename='images/logo.png') }}" class="logo" alt="Website Logo">
               </a>
               
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">fingerprint</i></a>
               <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('home')}}">Home</a></li>
+                <li><a href="{{ url_for('home')}}">
+                    <img src="{{ url_for('static',filename='images/home.png') }}" class="nav-icons" alt="Home page image">
+                    Home
+                </a></li>
                 {% if session.client %}
                     <li><a href="{{ url_for('get_activities')}}">Activities</a></li>
                     <li><a href="{{ url_for('logout')}}">Log Out</a></li>
                 {% else %}
-                    <li><a href="{{ url_for('login')}}">Log In</a></li>
-                    <li><a href="{{ url_for('register')}}">Register</a></li>
+                    <li><a href="{{ url_for('login')}}">
+                        <img src="{{ url_for('static',filename='images/lock.png') }}" class="nav-icons" alt="Lock image">
+                        Log In
+                        </a>
+                    </li>
+                    <li><a href="{{ url_for('register')}}">
+                        <img src="{{ url_for('static',filename='images/plus.png') }}" class="nav-icons" alt="Plusimage">Register
+                        </a>
+                    </li>
                 {% endif %}
               </ul>
           </div>
@@ -44,8 +54,7 @@
             <li><a href="{{ url_for('login')}}">Log In</a></li>
             <li><a href="{{ url_for('register')}}">Register</a></li>
         {% endif %}
-      </ul>
-          
+      </ul>   
 </header>
 <body>
 <!-- Displaying flash messages  -->

@@ -77,8 +77,13 @@ def login():
 @app.route("/logout")
 def logout():
     flash("You're sucessfully logged out")
-    session.pop("client")
+    session.clear()
     return redirect(url_for("login"))
+
+
+@app.route("/upload")
+def upload():
+    return render_template("upload.html")
 
 
 if __name__ == "__main__":
