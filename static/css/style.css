@@ -17,3 +17,16 @@
     height: 30px;
     width: 30px;
 }
+.card-panel {
+    border-radius: 75px;
+    background-color: #d9e61357;
+}
+.btn-large {
+    border-radius: 32px;
+}
+#bg-image {
+    background: url(../images/rainbow.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

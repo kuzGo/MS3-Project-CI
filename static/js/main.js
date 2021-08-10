@@ -3,3 +3,11 @@ $(document).ready(function(){
     $('.slider').slider();
     $('select').formSelect();
   });
+
+  let navIcons = document.querySelectorAll(".nav-icons");
+  navIcons.forEach((navIcons) => {
+    navIcons.addEventListener("mouseover", e=>{
+      navIcons.innerText = " Hi ";
+    });
+  });
+

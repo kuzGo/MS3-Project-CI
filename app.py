@@ -67,6 +67,8 @@ def login():
                     registered_user["password"], request.form.get("password")):
                 session["client"] = request.form.get("username")
                 flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for("get_activities"))
+
             else:
                 flash("Password and/or username you entered is inncorect")
                 return redirect(url_for("login"))
@@ -83,7 +85,8 @@ def logout():
 
 @app.route("/upload")
 def upload():
-    return render_template("upload.html")
+    categories = mongo.db.catogories.find().sort('category_type',1)
+    return render_template("upload.html", categories=categories)
 
 
 if __name__ == "__main__":

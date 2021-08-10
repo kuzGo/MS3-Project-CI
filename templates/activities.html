@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-    {% for activity in activities %}
-    <div class="row col s12">
-      <h3>Add Activity</h3>
-      <a class="btn-floating btn-large waves-effect waves-light red darken-4" href="{{ url_for('upload')}}"><i
-          class="material-icons">add</i></a>
-    </div>
+{% for activity in activities %}
+<div class="row col s12">
+  <h3>Add Activity</h3>
+  <a class="btn-floating btn-large waves-effect waves-light red darken-4" href="{{ url_for('upload')}}"><i
+      class="material-icons">add</i></a>
+</div>
+
     <div class="row">
       <div class="col s12 m6">
         <div class="card hoverable">
@@ -28,7 +29,6 @@
         </div>
       </div>
     </div>
-    {% endfor %}
-{% endblock %}    
-
-    
+   
+{% endfor %}
+{% endblock %}
