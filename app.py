@@ -83,9 +83,22 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/upload")
+@app.route("/upload", methods=['GET', 'POST'])
 def upload():
-    categories = mongo.db.catogories.find().sort('category_type',1)
+    if request.method == 'POST':
+        activity = {
+            "category_type": request.form.get("category_type"),
+            "activity_name": request.form.get("activity_name"),
+            "activity_outcome": request.form.get("activity_outcome"),
+            "description": request.form.get("description"),
+            "necessities": request.form.get("necessities"),
+            "image_url": request.form.get("image_url"),
+            "uploaded_by": session["client"]
+        }
+        mongo.db.activities.insert_one(activity)
+        flash("Thank you for your contribution.")
+        return redirect(url_for("get_activities"))
+    categories = mongo.db.catogories.find().sort('category_type', 1)
     return render_template("upload.html", categories=categories)
 
 
