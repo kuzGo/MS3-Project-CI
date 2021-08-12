@@ -4,7 +4,7 @@
   
 
 <div class="row">
-    <form action="{{ url_for('upload')}}" method="POST" class="col s12 offset-m3">
+    <form action="{{ url_for('update_activity', activity_id=activity._id)}}" method="POST" class="col s12 offset-m3">
       <div class="row">
         <div class="input-field col s6">
           <select id="category_type" name="category_type" class="validate" required>
@@ -52,7 +52,7 @@
                 </div>
             </div>
           <div class="row">
-              <button class="btn waves-effect waves-light red darken-4">Add Activity
+              <button class="btn waves-effect waves-light red darken-4">Update Activity
                 <i class="material-icons right">send</i>
               </button>
           </div>

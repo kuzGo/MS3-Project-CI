@@ -102,6 +102,14 @@ def upload():
     return render_template("upload.html", categories=categories)
 
 
+@app.route("/update_activity/<activity_id>", methods=["GET", "POST"])
+def update_activity(activity_id):
+    activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
+    categories = mongo.db.catogories.find().sort('category_type', 1)
+    return render_template(
+        "update.html", activity=activity, categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
