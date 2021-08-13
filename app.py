@@ -104,6 +104,19 @@ def upload():
 
 @app.route("/update_activity/<activity_id>", methods=["GET", "POST"])
 def update_activity(activity_id):
+    if request.method == 'POST':
+        update = {
+            "category_type": request.form.get("category_type"),
+            "activity_name": request.form.get("activity_name"),
+            "activity_outcome": request.form.get("activity_outcome"),
+            "description": request.form.get("description"),
+            "necessities": request.form.get("necessities"),
+            "image_url": request.form.get("image_url"),
+            "uploaded_by": session["client"]
+        }
+        mongo.db.activities.update({"_id": ObjectId(activity_id)}, update)
+        flash("Activity has been updated.")
+
     activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
     categories = mongo.db.catogories.find().sort('category_type', 1)
     return render_template(

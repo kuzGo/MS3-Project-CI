@@ -8,9 +8,13 @@
       <div class="row">
         <div class="input-field col s6">
           <select id="category_type" name="category_type" class="validate" required>
-            <option value="" selected>Select Activity Category</option>
+            <option value="">Select Activity Category</option>
               {% for category in categories %}
+                {% if category.category_type == activity.category_type %}
+                <option value="{{ category.category_type}}" selected>{{ category.category_type}}</option>
+                {% else %}
                    <option value="{{ category.category_type}}">{{ category.category_type}}</option>
+                {% endif %}   
               {% endfor %}
           </select>
           <label for="category_type">Activity Category</label>
@@ -19,43 +23,54 @@
       <!-- Activity name inputs -->
       <div class="row">
           <div class="input-field col s6">
-              <input placeholder="Activity Name" id="activity_name" name="activity_name" type="text" class="validate">
+              <input placeholder="Activity Name" value="{{ activity.activity_name }}" id="activity_name" name="activity_name" type="text" class="validate">
               <label for="activity_name">Activity Name</label>
             </div>
       </div>    
           <!-- Activity nescessities inputs -->
               <div class="row">
                   <div class="input-field col s6">
-                    <textarea id="necessities" name="necessities" type="text" class="materialize-textarea validate" required></textarea>
+                    <textarea id="necessities" placeholder="Activity Necessities" name="necessities" type="text" class="materialize-textarea validate" required>
+                      {{- activity.necessities -}}
+                    </textarea>
                     <label for="necessities">e.g. toys,bowls,crayons</label>
                   </div>
               </div>
               <!-- Activity description inputs -->
               <div class="row">
                 <div class="input-field col s6">
-                  <textarea id="description" name="description" type="text"class="materialize-textarea validate" required></textarea>
+                  <textarea id="description" placeholder="Activity Description" name="description" type="text"class="materialize-textarea validate" required>
+                    {{- activity.description -}}
+                  </textarea>
                   <label for="description">Activity description</label>
                 </div>
               </div>
               <!-- Activity outcome inputs -->
               <div class="row">
                 <div class="input-field col s6">
-                  <textarea id="activity_outcome" name="activity_outcome" class="materialize-textarea validate" required ></textarea>
+                  <textarea id="activity_outcome" placeholder="Activity Outcome" name="activity_outcome" class="materialize-textarea validate" required >
+                    {{- activity.activity_outcome -}}
+                  </textarea>
                   <label for="activity_outcome">Activity outcome</label>
                 </div>
               </div>
               <!-- Image URL input -->
               <div class="row">
                 <div class="input-field col s6">
-                  <input placeholder="Image URL" id="" name="image_url" type="url" class="validate">
+                  <input placeholder="Image URL" id="image_url" value="{{ activity.image_url }}" name="image_url" type="url" class="validate">
                   <label for="image_url">Image URL</label>
                 </div>
             </div>
-          <div class="row">
-              <button class="btn waves-effect waves-light red darken-4">Update Activity
-                <i class="material-icons right">send</i>
-              </button>
-          </div>
+            
+              <div class="row">
+                <a class="btn waves-effect waves-light red darken-4" href="{{ url_for('get_activities')}}">
+                  <i class="material-icons right">cancel</i>
+                  Cancel
+                </a>
+                <button class="btn waves-effect waves-light ">Update Activity
+                  <i class="material-icons right">edit</i>
+                </button>
+              </div>
     </form>
   </div> 
 {% endblock %}

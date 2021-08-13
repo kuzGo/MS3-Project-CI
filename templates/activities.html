@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row col s12">
-      <h3>Add Activity</h3>
-      <a class="btn-floating btn-large waves-effect waves-light red darken-4" href="{{ url_for('upload')}}"><i
-          class="material-icons">add</i></a>
- {% for activity in activities %}
-    <div class="row">
-        <div class="col s12 m6 l4">
+<div class="row col s12 center-align">
+  <h3 class="center-align">Add Activity</h3>
+  <a class="btn-floating btn-large waves-effect waves-light pulse red darken-4" href="{{ url_for('upload')}}">
+    <i class="material-icons">add</i></a>
+</div>
+{% for activity in activities %}
+<div class="container">
+  <div class="section">
+    <div class="col s12">
+      <div class="row">
+        <div class="col s12 m6 l6 offset-l3">
           <div class="card hoverable">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="{{ activity.image_url }}">
@@ -22,15 +26,22 @@
                   class="material-icons right">close</i></span>
               <p><i class="material-icons prefix red-text tex-darken-3 left">list</i>{{ activity.category_type }}</p>
               <p><i class="material-icons prefix red-text tex-darken-3 left">toys</i>{{ activity.necessities }}</p>
-              <p><i class="material-icons prefix red-text tex-darken-3 left">library_books</i>{{ activity.description }}</p>
-              <p><i class="material-icons prefix red-text tex-darken-3 left">school</i>{{ activity.activity_outcome }}</p>
+              <p><i class="material-icons prefix red-text tex-darken-3 left">library_books</i>{{ activity.description }}
+              </p>
+              <p><i class="material-icons prefix red-text tex-darken-3 left">school</i>{{ activity.activity_outcome }}
+              </p>
               <p><em>by: {{ activity.uploaded_by }}</em></p>
-              <a href="" class="waves-effect waves-light red darken-4 btn">Remove</a>
-              <a href="{{ url_for('update_activity', activity_id=activity._id)}}" class="waves-effect waves-light btn">Update</a>
+              {% if session.client|lower == activity.uploaded_by|lower %}
+                    <a href="" class="waves-effect waves-light red darken-4 btn">Remove</a>
+                    <a href="{{ url_for('update_activity', activity_id=activity._id)}}"
+                      class="waves-effect waves-light btn">Update</a>
+                {% endif %}
             </div>
           </div>
         </div>
+      </div>
     </div>
-   
+  </div>
+</div>
 {% endfor %}
 {% endblock %}
