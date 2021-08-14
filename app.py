@@ -123,6 +123,13 @@ def update_activity(activity_id):
         "update.html", activity=activity, categories=categories)
 
 
+@app.route("/remove_activity/<activity_id>")
+def remove_activity(activity_id):
+    mongo.db.activities.remove({"_id": ObjectId(activity_id)})
+    flash("Activity has been deleted.")
+    return redirect(url_for("get_activities"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
