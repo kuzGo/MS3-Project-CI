@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='images/logo.png')}}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
@@ -24,20 +27,29 @@
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">fingerprint</i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('home')}}">
-                    <img src="{{ url_for('static',filename='images/home.png') }}" class="nav-icons" alt="Home page image">
-                    Home
-                </a></li>
+                       Home
+                    </a>
+                </li>
                 {% if session.client %}
-                    <li><a href="{{ url_for('get_activities')}}">Activities</a></li>
-                    <li><a href="{{ url_for('logout')}}">Log Out</a></li>
+                    <li><a href="{{ url_for('get_activities')}}">
+                            Activities
+                        </a>
+                    </li>
+                    <li><a href="{{ url_for('logout')}}">
+                        Log Out
+                    </a>
+                </li>
+                <li><a href="{{ url_for('welcome', username=session['client']) }}">
+                    My Profile
+                </a>
+            </li>
                 {% else %}
                     <li><a href="{{ url_for('login')}}">
-                        <img src="{{ url_for('static',filename='images/lock.png') }}" class="nav-icons" alt="Lock image">
                         Log In
                         </a>
                     </li>
                     <li><a href="{{ url_for('register')}}">
-                        <img src="{{ url_for('static',filename='images/plus.png') }}" class="nav-icons" alt="Plusimage">Register
+                        Register
                         </a>
                     </li>
                 {% endif %}
@@ -50,6 +62,10 @@
         {% if session.client %}
             <li><a href="{{ url_for('get_activities')}}">Activities</a></li>
             <li><a href="{{ url_for('logout')}}">Log Out</a></li>
+            <li><a href="{{ url_for('welcome', username=session['client']) }}">
+                My Profile
+            </a>
+        </li>
         {% else %}
             <li><a href="{{ url_for('login')}}">Log In</a></li>
             <li><a href="{{ url_for('register')}}">Register</a></li>
@@ -62,7 +78,7 @@
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                   {% for message in messages %}
-                     <h4 class="center-align red darken-4"> {{ message }} </h4>
+                     <h4 class="center-align green lighten-2 text-darken-4"> {{ message }} </h4>
                   {% endfor %}
                 {% endif %}
             {% endwith %}

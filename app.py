@@ -4,6 +4,7 @@ from flask import (
     render_template, request, url_for, session)
 from flask_pymongo import PyMongo
 from bson import ObjectId
+from flask_login import login_required, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -52,6 +53,8 @@ def register():
 
         session["client"] = request.form.get("username").lower()
         flash("You're sucessfuly registered")
+        return redirect(url_for(
+            "welcome", username=session["client"]))
 
     return render_template("register.html")
 
@@ -66,20 +69,34 @@ def login():
             if check_password_hash(
                     registered_user["password"], request.form.get("password")):
                 session["client"] = request.form.get("username")
-                flash("Welcome, {}".format(request.form.get("username")))
-                return redirect(url_for("get_activities"))
+                flash("Welcome, {},you are logged in.".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "welcome", username=session["client"]))
 
             else:
                 flash("Password and/or username you entered is inncorect")
                 return redirect(url_for("login"))
+        else:
+            flash("Password and/or username you entered is inncorect")
+            return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/welcome/<username>", methods=["GET", "POST"])
+def welcome(username):
+
+    username = mongo.db.users.find_one(
+        {"username": session["client"]})
+
+    return render_template("welcome.html", username=username)
 
 
 @app.route("/logout")
 def logout():
     flash("You're sucessfully logged out")
-    session.clear()
+    session.pop('client')
     return redirect(url_for("login"))
 
 
@@ -96,7 +113,7 @@ def upload():
             "uploaded_by": session["client"]
         }
         mongo.db.activities.insert_one(activity)
-        flash("Thank you for your contribution.")
+        flash("Activity has been uploaded.")
         return redirect(url_for("get_activities"))
     categories = mongo.db.catogories.find().sort('category_type', 1)
     return render_template("upload.html", categories=categories)
