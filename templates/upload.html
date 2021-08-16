@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-  
+<div class="row col s12 center-align">
+  <h3 class="center-align">Upload Activity</h3>
+</div>
 
 <div class="row">
-    <form action="{{ url_for('upload')}}" method="POST" class="col s12 offset-m3">
+    <form action="{{ url_for('upload')}}" method="POST" class="col s12 l6 offset-l3">
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12 l6 offset-l3">
           <select id="category_type" name="category_type" class="validate" required>
             <option value="" selected>Select Activity Category</option>
               {% for category in categories %}
@@ -18,35 +20,35 @@
       </div> 
       <!-- Activity name inputs -->
       <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s12 l12">
               <input placeholder="Activity Name" id="activity_name" name="activity_name" type="text" class="validate" required>
               <label for="activity_name">Activity Name</label>
             </div>
       </div>    
           <!-- Activity nescessities inputs -->
               <div class="row">
-                  <div class="input-field col s12">
+                  <div class="input-field col s12 l12">
                     <textarea id="necessities" placeholder="e.g. toys,bowls,crayons" name="necessities" type="text" class="materialize-textarea validate" required></textarea>
                     <label for="necessities">Activity Necessities</label>
                   </div>
               </div>
               <!-- Activity description inputs -->
               <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12 l12">
                   <textarea id="description"  placeholder="Activity Description" name="description" type="text"class="materialize-textarea validate" required></textarea>
                   <label for="description">Activity description</label>
                 </div>
               </div>
               <!-- Activity outcome inputs -->
               <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12 l12">
                   <textarea id="activity_outcome"  placeholder="Activity Outcome" name="activity_outcome" class="materialize-textarea validate" required ></textarea>
                   <label for="activity_outcome">Activity outcome</label>
                 </div>
               </div>
               <!-- Image URL input -->
               <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12 l12">
                   <input placeholder="Image URL" id="image_url" name="image_url" type="url" class="validate">
                   <label for="image_url">Image URL</label>
                 </div>

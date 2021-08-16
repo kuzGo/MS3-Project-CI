@@ -2,6 +2,7 @@ $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.slider').slider();
     $('select').formSelect();
+    $('.modal').modal();
   });
 
   let navIcons = document.querySelectorAll(".nav-icons");
@@ -11,3 +12,4 @@ $(document).ready(function(){
     });
   });
 
+ 

@@ -1,49 +1,105 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="slider">
-    <ul class="slides">
-      <li>
-        <img src="{{ url_for('static',filename='images/hero1.jpg') }}">
-         <!-- https://www.pexels.com/photo/children-doing-arts-and-crafts-at-school-8612992/ image -->
-        <div class="caption center-align">
-          <h4 class="img-caption">"The goal of early chilhood education
+  <ul class="slides">
+    <li>
+      <img src="{{ url_for('static',filename='images/hero1.jpg') }}">
+      <!-- https://www.pexels.com/photo/children-doing-arts-and-crafts-at-school-8612992/ image -->
+      <div class="caption center-align">
+        <h4 class="img-caption">"The goal of early chilhood education
           should be to activate the child's own natural desire to learn"</h4>
-          <h5 class="img-caption"><em>Maria Montessori</em></h5>
+        <h5 class="img-caption"><em>Maria Montessori</em></h5>
+      </div>
+    </li>
+    <li>
+      <img src="{{ url_for('static',filename='images/hero2.jpg') }}">
+      <!-- https://www.pexels.com/photo/boy-in-blue-long-sleeve-shirt-and-denim-shorts-playing-with-wooden-toy-cars-8612955/ image -->
+      <div class="caption left-align">
+        <h3 class="img-caption">Importance of play in early chilhood</h3>
+        <h5 class="img-caption">
+          Benefits of play at an early age and appropriate activities.
+        </h5>
+      </div>
+    </li>
+    <li>
+      <img src="{{ url_for('static',filename='images/hero3.jpg') }}">
+      <!-- https://www.pexels.com/photo/sea-sunny-beach-vacation-7862529/ image -->
+      <div class="caption right-align">
+        <h3 class="img-caption">Pre-school at Home</h3>
+        <h5 class="img-caption">
+          Pre-school at Home Hub provides a range of activities to support
+          and encourag children's interests.
+        </h5>
+        <a href="https://first5.gov.ie/parents/pre-school-at-home" target="_blank">See link here</a>
+      </div>
+    </li>
+    <li>
+      <img src="{{ url_for('static',filename='images/hero4.jpg') }}">
+      <!-- https://www.pexels.com/photo/little-kid-playing-with-plastic-shovel-and-car-in-yard-5623742/ -->
+      <div class="caption center-align">
+        <h3 class="img-caption">Natural enviroment as a source of learning</h3>
+        <h5 class="img-caption">
+          Benefits of natural enviroment and outdoor experiences for holistic child's developement.
+        </h5>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="container">
+  <div class="section">
+   <div class="col s12">
+    <div class="row">
+      <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{ url_for('static',filename='images/hero4.jpg') }}" alt="">
+            <span class="card-title">
+              Activity
+            </span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+            <p></p>
+          </div>
         </div>
-      </li>
-      <li>
-        <img src="{{ url_for('static',filename='images/hero2.jpg') }}">
-         <!-- https://www.pexels.com/photo/boy-in-blue-long-sleeve-shirt-and-denim-shorts-playing-with-wooden-toy-cars-8612955/ image -->
-        <div class="caption left-align">
-          <h3 class="img-caption">Importance of play in early chilhood</h3>
-          <h5 class="img-caption">
-            Benefits of play at an early age and appropriate activities.
-          </h5>
+      </div>
+      <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{ url_for('static',filename='images/hero4.jpg') }}" alt="">
+            <span class="card-title">
+              Activity
+            </span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+            <p></p>
+          </div>
         </div>
-      </li>
-      <li>
-        <img src="{{ url_for('static',filename='images/hero3.jpg') }}">
-         <!-- https://www.pexels.com/photo/sea-sunny-beach-vacation-7862529/ image -->
-        <div class="caption right-align">
-          <h3 class="img-caption">Pre-school at Home</h3>
-          <h5 class="img-caption">
-            Pre-school at Home Hub provides a range of activities to support
-            and encourag children's interests.
-          </h5>
-          <a href="https://first5.gov.ie/parents/pre-school-at-home" target="_blank">See link here</a>
+      </div>
+      <div class="col s12 m6 l4">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{ url_for('static',filename='images/hero4.jpg') }}" alt="">
+            <span class="card-title">
+              Activity
+            </span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          </div>
+          <div class="card-content">
+            <p></p>
+          </div>
         </div>
-      </li>
-      <li>
-        <img src="{{ url_for('static',filename='images/hero4.jpg') }}">
-         <!-- https://www.pexels.com/photo/little-kid-playing-with-plastic-shovel-and-car-in-yard-5623742/ -->
-        <div class="caption center-align">
-          <h3 class="img-caption">Natural enviroment as a source of learning</h3>
-          <h5 class="img-caption">
-            Benefits of natural enviroment and outdoor experiences for holistic child's developement.
-          </h5>
-        </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
-
+  </div>
+</div>
+<!-- <div class="container"> -->
+  <div class="row">
+    <div class="col s12">
+      <img src="{{ url_for('static',filename='images/city.png') }}" alt="" id="city">
+    </div>
+  </div>
+<!-- </div> -->
 {% endblock %}
