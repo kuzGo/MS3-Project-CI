@@ -4,7 +4,6 @@ from flask import (
     render_template, request, url_for, session)
 from flask_pymongo import PyMongo
 from bson import ObjectId
-from flask_login import login_required, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -88,9 +87,13 @@ def login():
 def welcome(username):
 
     username = mongo.db.users.find_one(
-        {"username": session["client"]})
+        {"username": session["client"]})['username']
 
-    return render_template("welcome.html", username=username)
+    if session['client']:
+        uploads = list(mongo.db.activities.find().sort("_id", 1))
+        return render_template(
+            "welcome.html", username=username, uploads=uploads)
+    return redirect(url_for("login"))
 
 
 @app.route("/logout")
