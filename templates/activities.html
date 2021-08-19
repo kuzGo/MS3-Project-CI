@@ -40,28 +40,28 @@
             <a href="#{{ activity._id }}" class="modal-trigger waves-effect waves-light btn red tex-darken-3">Remove</a>
             <a href="{{ url_for('update_activity', activity_id=activity._id) }}"
               class="waves-effect waves-light btn">Update</a>
-              {% endif %}
-            <!-- Modal Structure -->
-            <div id="{{ activity._id }}" class="modal">
-              <div class="modal-content">
-                <h4>Are you sure you want to delete activity?</h4>
-                <p>Activity will be deleted permanently.</p>
-              </div>
-              <div class="modal-footer">
-                <a href="{{ url_for('remove_activity', activity_id=activity._id) }}"
-                  class="modal-close waves-effect waves-green btn-flat"> Delete</a>
-                <a href="{{ url_for('get_activities') }}" class="modal-close waves-effect waves-green btn-flat">
-                  Do not Delete</a>
-              </div>
+            {% endif %}
+
             </div>
-            <!-- END OF Modal Structure -->
           </div>
         </div>
+        <!-- Modal Structure -->
+        <div id="{{ activity._id }}" class="modal">
+          <div class="modal-content">
+            <h4>Are you sure you want to delete activity?</h4>
+            <p>Activity will be deleted permanently.</p>
+          </div>
+          <div class="modal-footer">
+            <a href="{{ url_for('remove_activity', activity_id=activity._id) }}"
+              class="modal-close waves-effect waves-green btn-flat"> Delete</a>
+            <a href="{{ url_for('get_activities') }}" class="modal-close waves-effect waves-green btn-flat">
+              Do not Delete</a>
+          </div>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </div>
-</div>
 
 
-{% endblock %}
+  {% endblock %}
