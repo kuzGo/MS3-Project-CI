@@ -161,6 +161,21 @@ def admin_page():
         return redirect(url_for("get_activities"))
 
 
+@app.route("/new_category", methods=["GET", "POST"])
+def new_category():
+    if session["client"] == 'admin':
+
+        if request.method == 'POST':
+            new_categories = {
+                'category_type': request.form.get("category_name")
+            }
+            mongo.db.catogories.insert_one(new_categories)
+            flash("New category added.")
+            return redirect(url_for("admin_page"))
+
+    return render_template("category.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

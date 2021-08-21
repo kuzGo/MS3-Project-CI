@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
     {% block styles %}
     {% endblock %}
-    <title>Document</title>
+    <title>Growapps</title>
 </head>
 <header>
     <nav>
@@ -87,7 +87,9 @@
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                   {% for message in messages %}
-                     <h4 class="center-align green lighten-2 text-darken-4"> {{ message }} </h4>
+                  
+                      <h4 class="center-align green lighten-2 text-darken-4">{{ message }}</h4>
+                   
                   {% endfor %}
                 {% endif %}
             {% endwith %}
