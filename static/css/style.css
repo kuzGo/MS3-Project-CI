@@ -1,5 +1,5 @@
 body {
-    background-color: #ffc0cb7a;
+    background-color: #da1336b5;
     font-family: 'Coda Caption', sans-serif;
 }
 .logo {
@@ -72,7 +72,7 @@ font-size: 1.5rem!important;
     transition: all ease-in-out 0.6s;
 }
 
-input.search-text {
+ input.search-text {
     border-bottom: none!important;
     width: 80%!important;
     height: 26px!important;
@@ -81,14 +81,32 @@ input.search-text {
     font-size: 16px;
     transition: 0.4s;
     line-height: 40px;
-}
+} 
 .search-button{
     float: right;
     width: 40px;
+    height: 40px;
     border-radius: 50%;
     background:#B71C1C;
     display: flex;
     justify-content: center;
-    align-items: center;
-
+    align-items: flex-start;
+}
+.modal {
+    /* https://pixabay.com/illustrations/illustration-child-clipart-graphics-2814002/ */
+    background: url(../images/modal.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 55vh;
+    max-width: 600px;
+}
+.modal .modal-footer {
+    background-color: transparent;
+    text-align: center;
+   
+}
+.modal .modal-content {
+    text-align: center;
+    margin-top: 36%;
 }
