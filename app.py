@@ -191,9 +191,14 @@ def new_category():
     if session["client"] == 'admin':
 
         if request.method == 'POST':
+            current_category = mongo.db.catogories.find_one(
+                {"category_type": request.form.get("category_name")})
             new_categories = {
                 'category_type': request.form.get("category_name")
             }
+            if current_category:
+                flash("This category already exists,try different.")
+                return redirect("new_category")
             mongo.db.catogories.insert_one(new_categories)
             flash("New category added.")
             return redirect(url_for("admin_page"))
