@@ -124,30 +124,55 @@ def upload():
 
 @app.route("/update_activity/<activity_id>", methods=["GET", "POST"])
 def update_activity(activity_id):
-    if request.method == 'POST':
-        update = {
-            "category_type": request.form.get("category_type"),
-            "activity_name": request.form.get("activity_name"),
-            "activity_outcome": request.form.get("activity_outcome"),
-            "description": request.form.get("description"),
-            "necessities": request.form.get("necessities"),
-            "image_url": request.form.get("image_url"),
-            "uploaded_by": session["client"]
-        }
-        mongo.db.activities.update({"_id": ObjectId(activity_id)}, update)
-        flash("Activity has been updated.")
-
+    """
+    Updating activities is restricted to user currently logged in,
+    or Admin user.
+    """
     activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
-    categories = mongo.db.catogories.find().sort('category_type', 1)
-    return render_template(
-        "update.html", activity=activity, categories=categories)
+    current_user = session["client"] == activity["uploaded_by"]
+
+    if session["client"] == 'admin' or current_user:
+
+        if request.method == 'POST':
+            update = {
+                "category_type": request.form.get("category_type"),
+                "activity_name": request.form.get("activity_name"),
+                "activity_outcome": request.form.get("activity_outcome"),
+                "description": request.form.get("description"),
+                "necessities": request.form.get("necessities"),
+                "image_url": request.form.get("image_url"),
+                "uploaded_by": session["client"]
+            }
+            mongo.db.activities.update({"_id": ObjectId(activity_id)}, update)
+            flash("Activity has been updated.")
+        activity = mongo.db.activities.find_one(
+            {"_id": ObjectId(activity_id)})
+        categories = mongo.db.catogories.find().sort('category_type', 1)
+        return render_template(
+            "update.html", activity=activity, categories=categories)
+    else:
+        flash("Updating others activities is not allowed.")
+        return redirect(url_for("get_activities"))
 
 
 @app.route("/remove_activity/<activity_id>")
 def remove_activity(activity_id):
-    mongo.db.activities.remove({"_id": ObjectId(activity_id)})
-    flash("Activity has been deleted.")
-    return redirect(url_for("get_activities"))
+    """
+    Deleting activities is restricted to user currently logged in,
+    or Admin user.
+    """
+
+    activity = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
+    current_user = session["client"] == activity["uploaded_by"]
+
+    if session["client"] == 'admin' or current_user:
+
+        mongo.db.activities.remove({"_id": ObjectId(activity_id)})
+        flash("Activity has been deleted.")
+        return redirect(url_for("get_activities"))
+    else:
+        flash("Deleting activities is not allowed.")
+        return redirect(url_for("get_activities"))
 
 
 @app.route("/admin_page")
