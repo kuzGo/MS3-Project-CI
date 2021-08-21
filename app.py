@@ -67,7 +67,7 @@ def login():
         if registered_user:
             if check_password_hash(
                     registered_user["password"], request.form.get("password")):
-                session["client"] = request.form.get("username")
+                session["client"] = request.form.get("username").lower()
                 flash("Welcome, {},you are logged in.".format(
                     request.form.get("username")))
                 return redirect(url_for(
@@ -148,6 +148,17 @@ def remove_activity(activity_id):
     mongo.db.activities.remove({"_id": ObjectId(activity_id)})
     flash("Activity has been deleted.")
     return redirect(url_for("get_activities"))
+
+
+@app.route("/admin_page")
+def admin_page():
+    if session["client"] == 'admin':
+        categories = list(
+            mongo.db.catogories.find().sort("category_type", 1))
+        return render_template("admin.html", categories=categories)
+    else:
+        flash("Sorry, you don't have admin rights.")
+        return redirect(url_for("get_activities"))
 
 
 if __name__ == "__main__":

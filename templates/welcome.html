@@ -32,12 +32,12 @@
                             upload.description
                             }}
                         </p>
-                        <p><i class="material-icons prefix red-text tex-darken-3 left">school</i>{{
+                        <p><i class="material-icons prefix red-text text-darken-3 left">school</i>{{
                             upload.activity_outcome }}
                         </p>
                         <p><em>by: {{ upload.uploaded_by }}</em></p>
                         <a href="#{{ upload._id }}"
-                            class="modal-trigger waves-effect waves-light btn red tex-darken-3">Remove</a>
+                            class="modal-trigger waves-effect waves-light btn red text-darken-3">Remove</a>
                         <a href="{{ url_for('update_activity', activity_id=upload._id) }}"
                             class="waves-effect waves-light btn">Update</a>
 
@@ -52,8 +52,8 @@
                     </div>
                     <div class="modal-footer">
                         <a href="{{ url_for('remove_activity', activity_id=upload._id) }}"
-                            class="modal-close waves-effect waves-green btn-flat"> Delete</a>
-                        <a href="{{ url_for('welcome', username=session['client']) }}" class="modal-close waves-effect waves-green btn-flat">
+                            class="modal-close waves-effect waves-green  btn red text-darken-3"> Delete</a>
+                        <a href="{{ url_for('welcome', username=session['client']) }}" class="modal-close waves-effect waves-green  btn blue text-darken-3">
                             Do not Delete</a>
                     </div>
                 </div>
