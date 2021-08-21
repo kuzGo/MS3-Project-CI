@@ -220,6 +220,13 @@ def category_edit(category_id):
     return render_template("category_edit.html", category=category)
 
 
+@app.route("/remove_category/<category_id>")
+def remove_category(category_id):
+    mongo.db.catogories.remove({"_id": ObjectId(category_id)})
+    flash("Activity category deleted successfully.")
+    return redirect(url_for("admin_page"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

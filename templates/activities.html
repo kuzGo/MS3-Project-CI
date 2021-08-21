@@ -54,7 +54,7 @@
               }}
             </p>
             <p><em>by: {{ activity.uploaded_by }}</em></p>
-            <a href="#{{ activity._id }}" class="modal-trigger waves-effect waves-light btn red tex-darken-3">Remove</a>
+            <a href="{{ activity._id }}" class="modal-trigger waves-effect waves-light btn red tex-darken-3">Remove</a>
             <a href="{{ url_for('update_activity', activity_id=activity._id) }}"
               class="waves-effect waves-light btn">Update</a>
           </div>
