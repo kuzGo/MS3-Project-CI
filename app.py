@@ -206,6 +206,20 @@ def new_category():
     return render_template("category.html")
 
 
+@app.route("/category_edit/<category_id>", methods=["GET", "POST"])
+def category_edit(category_id):
+    if session["client"] == 'admin':
+        if request.method == "POST":
+            edit = {
+                "category_type": request.form.get("category_name")
+            }
+            mongo.db.catogories.update({"_id": ObjectId(category_id)}, edit)
+            flash("Activity category updated successfully.")
+            return redirect(url_for("admin_page"))
+        category = mongo.db.catogories.find_one({"_id": ObjectId(category_id)})
+    return render_template("category_edit.html", category=category)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

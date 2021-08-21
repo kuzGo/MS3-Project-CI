@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row col s12 center-align">
+  <h3 class="center-align">Update Activity Category</h3>
+</div>
+
+<div class="row">
+    <form action="{{ url_for('category_edit', category_id=category._id) }}" method="POST" class="col s12 l6 offset-l3">
+     
+
+      <!-- Activity name inputs -->
+      <div class="row">
+          <div class="input-field col s12 l12">
+              <input placeholder="Category Name" id="category_name" value="{{ category.category_type }}" name="category_name" minlength="3" maxlength="22" type="text" class="validate" required>
+              <label for="category_name">Category Name</label>
+            </div>
+      </div>    
+          
+          <div class="row">
+                <a class="btn waves-effect waves-light red darken-4" href="{{ url_for('admin_page')}}">
+                    <i class="material-icons right">cancel</i>
+                    Cancel
+                </a>
+              <button type="submit" class="btn waves-effect waves-light">Update Category
+                <i class="material-icons right">edit</i>
+              </button>
+          </div>
+    </form>
+  </div> 
+{% endblock %}
