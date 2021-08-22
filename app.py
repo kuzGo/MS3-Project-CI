@@ -4,6 +4,7 @@ from flask import (
     render_template, request, url_for, session)
 from flask_pymongo import PyMongo
 from bson import ObjectId
+from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -18,6 +19,17 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'client' in session:
+            return f(*args, **kwargs)
+        else:
+            flash("You need to be logged in to proceed.")
+            return redirect(url_for("login"))
+    return wrap
+
+
 @app.route("/")
 @app.route("/home")
 def home():
@@ -25,18 +37,18 @@ def home():
 
 
 @app.route("/get_activities")
+@login_required
 def get_activities():
     activities = list(mongo.db.activities.find())
     return render_template("activities.html", activities=activities)
 
 
 @app.route("/search", methods=["GET", "POST"])
+@login_required
 def search():
-    if session["client"]:
-        query = request.form.get("query")
-        activities = list(mongo.db.activities.find(
-            {"$text": {"$search": query}}))
-        return render_template("activities.html", activities=activities)
+    query = request.form.get("query")
+    activities = list(mongo.db.activities.find({"$text": {"$search": query}}))
+    return render_template("activities.html", activities=activities)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -106,6 +118,7 @@ def welcome(username):
 
 
 @app.route("/logout")
+@login_required
 def logout():
     flash("You're sucessfully logged out")
     session.pop('client')
@@ -113,6 +126,7 @@ def logout():
 
 
 @app.route("/upload", methods=['GET', 'POST'])
+@login_required
 def upload():
     if request.method == 'POST':
         activity = {
@@ -133,6 +147,7 @@ def upload():
 
 @app.route("/update_activity/<activity_id>", methods=["GET", "POST"])
 def update_activity(activity_id):
+
     """
     Updating activities is restricted to user currently logged in,
     or Admin user.
@@ -185,6 +200,7 @@ def remove_activity(activity_id):
 
 
 @app.route("/admin_page")
+@login_required
 def admin_page():
     if session["client"] == 'admin':
         categories = list(
@@ -196,6 +212,7 @@ def admin_page():
 
 
 @app.route("/new_category", methods=["GET", "POST"])
+@login_required
 def new_category():
     if session["client"] == 'admin':
 
@@ -216,6 +233,7 @@ def new_category():
 
 
 @app.route("/category_edit/<category_id>", methods=["GET", "POST"])
+@login_required
 def category_edit(category_id):
     if session["client"] == 'admin':
         if request.method == "POST":
@@ -230,6 +248,7 @@ def category_edit(category_id):
 
 
 @app.route("/remove_category/<category_id>")
+@login_required
 def remove_category(category_id):
     if session["client"] == 'admin':
 
@@ -239,6 +258,13 @@ def remove_category(category_id):
     else:
         flash("Sorry, you don't have admin rights.")
         return redirect(url_for("get_activities"))
+
+
+@app.route("/activity_page/<activity_id>", methods=["GET"])
+@login_required
+def activity_page(activity_id):
+    pages = mongo.db.activities.find_one({"_id": ObjectId(activity_id)})
+    return render_template("activity_page.html", pages=pages)
 
 
 @app.errorhandler(404)
