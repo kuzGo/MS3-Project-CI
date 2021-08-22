@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('.slider').slider();
     $('select').formSelect();
     $('.modal').modal();
+    $('.tooltipped').tooltip();
   });
 
   let navIcons = document.querySelectorAll(".nav-icons");

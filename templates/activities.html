@@ -2,33 +2,35 @@
 {% block content %}
 
 <div class="row col s12 center-align container">
-    <h3 class="center-align"> Activities</h3>
-      <div class="row card-panel">
-           <form action="#" method="post" class="col s12">
-                   <div class="row valign-wrapper center-align">
-                         <div class="input-field col s12 m8">
-                                <input type="text" name="query" id="query" minlength="3" placeholder="Type Activity ..."
-                                    class="validate" required>
-                                <label for="query">Search Activities</label>
-                          </div>
-                             <div class="row col s2 m4">
-                                  <button type="submit" class="btn-floating btn-large blue btn"><i class="material-icons">search</i>
-                                  
-                                  </button>
-                                   <a href="#" class="btn-floating btn-large red btn"><i class="material-icons">restart_alt</i></a>  
-                                  <a class="btn-floating btn-large waves-effect waves-light pulse red darken-4" href="{{ url_for('upload')}}"><i
-                                      class="material-icons ">add</i></a>
-                            </div>
-                     </div>
-              </form>
-          </div>
-      </div>
+  <h3 class="center-align"> Activities</h3>
+  <div class="row card-panel">
+     <form action="{{ url_for('search')}}" method="post" class="col s12">
+         <div class="row valign-wrapper center-align">
+            <div class="input-field col s12 m8">
+              <input type="text" name="query" id="query" minlength="3" placeholder="Type Activity ..." class="validate" required>
+               <label for="query">Search Activities</label>
+            </div>
+            <div class="row col s2 m4">
+                  <button type="submit" class="btn-floating btn-large blue btn tooltipped" data-position="bottom"
+                    data-tooltip="Search Activities"><i class="material-icons">search</i>
+                  </button>
+                       <a href="{{ url_for('get_activities')}}" class="btn-floating btn-large red btn tooltipped"
+                        data-position="top" data-tooltip="Restart Search"><i class="material-icons">restart_alt</i></a>  
+              <a class="btn-floating btn-large waves-effect waves-light pulse red darken-4 tooltipped"
+                data-position="bottom" data-tooltip="Add Activity" href="{{ url_for('upload')}}"><i
+              class="material-icons ">add</i></a>
+         </div>     
+       </div>
+     </form>
+    </div>
+  </div>
 </div>
 
 
 <div class="container">
   <div class="section">
-    <div class="row">
+    {% if activities|length > 0 %}
+    <div class="row"> 
       {% for activity in activities %}
       <div class="col s12 m6 l4">
         <div class="card hoverable">
@@ -54,12 +56,13 @@
               }}
             </p>
             <p><em>by: {{ activity.uploaded_by }}</em></p>
-            <a href="{{ activity._id }}" class="modal-trigger waves-effect waves-light btn red tex-darken-3">Remove</a>
+            <a href="#{{ activity._id }}" class="modal-trigger waves-effect waves-light btn red tex-darken-3">Remove</a>
             <a href="{{ url_for('update_activity', activity_id=activity._id) }}"
               class="waves-effect waves-light btn">Update</a>
           </div>
         </div>
       </div>
+   
       <!-- Modal Structure -->
       <div id="{{ activity._id }}" class="modal">
         <div class="modal-content">
@@ -76,7 +79,10 @@
       {% endfor %}
     </div>
   </div>
+  {% else %} 
+  <h3 class="red center-align">No Results Found</h3>
+  {% endif %}
 </div>
-
+      
 
 {% endblock %}
