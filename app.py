@@ -26,8 +26,17 @@ def home():
 
 @app.route("/get_activities")
 def get_activities():
-    activities = mongo.db.activities.find()
+    activities = list(mongo.db.activities.find())
     return render_template("activities.html", activities=activities)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    if session["client"]:
+        query = request.form.get("query")
+        activities = list(mongo.db.activities.find(
+            {"$text": {"$search": query}}))
+        return render_template("activities.html", activities=activities)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -222,9 +231,19 @@ def category_edit(category_id):
 
 @app.route("/remove_category/<category_id>")
 def remove_category(category_id):
-    mongo.db.catogories.remove({"_id": ObjectId(category_id)})
-    flash("Activity category deleted successfully.")
-    return redirect(url_for("admin_page"))
+    if session["client"] == 'admin':
+
+        mongo.db.catogories.remove({"_id": ObjectId(category_id)})
+        flash("Activity category deleted successfully.")
+        return redirect(url_for("admin_page"))
+    else:
+        flash("Sorry, you don't have admin rights.")
+        return redirect(url_for("get_activities"))
+
+
+@app.errorhandler(404)
+def error404(error):
+    return render_template("error404.html"), 404
 
 
 if __name__ == "__main__":
