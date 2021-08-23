@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if pages.category_type %}
+<div class="row container">
+    <div class="col s12 center-align">
+        <img src="{{ pages.image_url }}" class="activity-image" alt="Photo of {{ pages.activity_name}}">
+    </div>
+    <h3 class="center-align "><em class="activity-text">Activity Category: </em><span class="activity-content ">{{ pages.category_type }}</span></h3>
+    <div class="col s12 cleft-align">
+        <h4>
+            <em class="activity-text"><i class="material-icons left">history_edu</i> Activity Name: </em><span class="activity-content "> {{ pages.activity_name }}</span>
+        </h4>
+    </div>
+    <div class="col s12 left-align">
+        <h4>
+            <em class="activity-text"><i class="material-icons left">school</i> Activity Outcome: </em><span class="activity-content ">{{ pages.activity_outcome }}</span>
+        </h4>
+    </div>
+    <div class="col s12 left-align">
+        <h4>
+            <em class="activity-text"><i class="material-icons left">library_books</i>Activity Description: </em><span class="activity-content ">{{ pages.description }}</span>
+        </h4>
+    </div>
+    <div class="col s12 left-align">
+        <h4>
+            <em class="activity-text"><i class="material-icons left">toys</i>Activity Requirements: </em><span class="activity-content ">{{ pages.necessities }}</span>
+        </h4>
+    </div>
+    <div class="col s12 left-align">
+        <h4>
+            <em class="activity-text"><i class="material-icons left">edit</i>Activity Posted By: </em><span class="activity-content ">{{ pages.uploaded_by }}</span>
+        </h4>
+    </div>
+</div>
+{% endif %}
+{% endblock  %}

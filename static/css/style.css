@@ -1,6 +1,6 @@
 body {
     background-color: #da1336b5;
-    font-family: 'Coda Caption', sans-serif;
+    
 }
 .logo {
     height: 55px;
@@ -28,11 +28,11 @@ body {
 .btn-large {
     border-radius: 32px;
 }
-#bg-image {
+.bg-image {
     background: url(../images/rainbow.png);
-    background-position: top;
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
 }
 #city {
     background-position: bottom;
@@ -53,7 +53,9 @@ font-size: 1.5rem!important;
 }
 .flash-msg {
     text-transform: capitalize;
-    color: #0171c0;
+    color: #d11919;
+    font-family: "Open Sans", sans-serif;
+
 }
 
 .search-container {
@@ -109,4 +111,19 @@ font-size: 1.5rem!important;
 .modal .modal-content {
     text-align: center;
     margin-top: 36%;
+}
+.activity-image {
+    width: 75%;
+    height: 60vh;
+}
+.activity-text {
+    font-family: 'Coda Caption', sans-serif;
+    font-size: 20px;
+    color: #ac0b18;
+    font-weight: bold;
+}
+.activity-content {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.28rem;
+    color: #fff;
 }
