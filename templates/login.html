@@ -3,7 +3,7 @@
 
 <h3 class="center-align">Log In</h3>
 
-    <div class="row" id="bg-image">
+    <div class="row bg-image" >
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login')}}">
             <div class="card-panel">
                 <!-- Username input field -->
@@ -14,15 +14,15 @@
                     </div>
                     <!-- Password input field -->
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s12 ">
                             <input id="password" name="password" type="password" class="validate" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" required>
                             <label for="password"> <i class="material-icons">password</i> </label>
                         </div>
                     </div>
                     <!-- Submit Button -->
-                    <button class="col s12 btn-large waves-effect waves-light red darken-3" type="submit" name="action">
+                    <button class="col s12 m2 offset-m5 btn-large waves-effect register-btn" type="submit" name="action">
                         Log In
-                        <i class="material-icons">login</i>
+                        <i class="material-icons left">login</i>
                     </button>
                 </div>
             </div>

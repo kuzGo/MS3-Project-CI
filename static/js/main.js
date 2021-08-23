@@ -6,11 +6,5 @@ $(document).ready(function(){
     $('.tooltipped').tooltip();
   });
 
-  let navIcons = document.querySelectorAll(".nav-icons");
-  navIcons.forEach((navIcons) => {
-    navIcons.addEventListener("mouseover", e=>{
-      navIcons.innerText = " Hi ";
-    });
-  });
 
  
