@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Log In</h3>
+<h3 class="center-align titles">Log In</h3>
 
     <div class="row bg-image" >
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login')}}">
@@ -9,13 +9,13 @@
                 <!-- Username input field -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" required>
+                        <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$"  data-length="20" required>
                         <label for="username"><i class="material-icons">person</i></label>
                     </div>
                     <!-- Password input field -->
                     <div class="row">
                         <div class="input-field col s12 ">
-                            <input id="password" name="password" type="password" class="validate" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" required>
+                            <input id="password" name="password" type="password" class="validate" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" data-length="20" required>
                             <label for="password"> <i class="material-icons">password</i> </label>
                         </div>
                     </div>

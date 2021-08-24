@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-  
+<div class="row col s12 center-align">
+  <h3 class="center-align titles">Update Activity</h3>
+</div>
 
 <div class="row">
     <form action="{{ url_for('update_activity', activity_id=activity._id)}}" method="POST" class="col s12 offset-m3">
       <div class="row">
         <div class="input-field col s6">
-          <select id="category_type" name="category_type" class="validate" required>
+          <select id="category_type" name="category_type" class="validate" required aria-required="true">
             <option value="">Select Activity Category</option>
               {% for category in categories %}
                 {% if category.category_type == activity.category_type %}
@@ -23,14 +25,14 @@
       <!-- Activity name inputs -->
       <div class="row">
           <div class="input-field col s6">
-              <input placeholder="Activity Name" value="{{ activity.activity_name }}" id="activity_name" name="activity_name" type="text" class="validate">
+              <input placeholder="Activity Name" value="{{ activity.activity_name }}" id="activity_name" name="activity_name" type="text" class="validate" data-length="20" required>
               <label for="activity_name">Activity Name</label>
             </div>
       </div>    
           <!-- Activity nescessities inputs -->
               <div class="row">
                   <div class="input-field col s6">
-                    <textarea id="necessities" placeholder="Activity Necessities" name="necessities" type="text" class="materialize-textarea validate" required>
+                    <textarea id="necessities" placeholder="Activity Necessities" name="necessities" type="text" class="materialize-textarea validate" data-length="500" required>
                       {{- activity.necessities -}}
                     </textarea>
                     <label for="necessities">e.g. toys,bowls,crayons</label>
@@ -39,7 +41,7 @@
               <!-- Activity description inputs -->
               <div class="row">
                 <div class="input-field col s6">
-                  <textarea id="description" placeholder="Activity Description" name="description" type="text"class="materialize-textarea validate" required>
+                  <textarea id="description" placeholder="Activity Description" name="description" type="text"class="materialize-textarea validate" data-length="500" required>
                     {{- activity.description -}}
                   </textarea>
                   <label for="description">Activity description</label>
@@ -48,7 +50,7 @@
               <!-- Activity outcome inputs -->
               <div class="row">
                 <div class="input-field col s6">
-                  <textarea id="activity_outcome" placeholder="Activity Outcome" name="activity_outcome" class="materialize-textarea validate" required >
+                  <textarea id="activity_outcome" placeholder="Activity Outcome" name="activity_outcome" class="materialize-textarea validate" data-length="500" required >
                     {{- activity.activity_outcome -}}
                   </textarea>
                   <label for="activity_outcome">Activity outcome</label>

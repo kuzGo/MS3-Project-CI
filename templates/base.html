@@ -8,7 +8,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='images/logo.png')}}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Open+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
@@ -21,7 +23,7 @@
     <nav>
           <div class="nav-wrapper ">
               <a href="{{ url_for('home')}}" class="brand-logo">
-                <img src="{{ url_for('static',filename='images/logo.png') }}" class="logo" alt="Website Logo">
+                <img src="{{ url_for('static',filename='images/logo.png') }}" class="logo" alt="Website Logo"><span class="logo">Growapps&trade;</span>
               </a>
               
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">fingerprint</i></a>
@@ -87,11 +89,11 @@
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                   {% for message in messages %}
+                  <div class="col center-align s12 m6 offset-m3">
                     <div class="row">
-                        <div class="s12 offset-m4">
-                          <h4 class="center-align flash-msg">{{ message }}</h4>
-                        </div>
+                          <h4 class="center-align btn-large yellow lighten-3 flash-msg">{{ message }}</h4>
                     </div>
+                </div>
                   {% endfor %}
                 {% endif %}
             {% endwith %}

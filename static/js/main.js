@@ -4,6 +4,7 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.modal').modal();
     $('.tooltipped').tooltip();
+    $('input#activity_name,textarea#necessities,#activity_outcome,#description,#username,#password').characterCounter();
     // CREDIT FOR CODE http://jsfiddle.net/b8frk03m/6/
     // for HTML5 "required" attribute
     $("select[required]").css({
@@ -21,6 +22,11 @@ $(document).ready(function(){
       pointerEvents: 'none'
     });
     // End of credit
+    $('.flash-msg').click(
+      function(){
+        $(this).addClass('hide');
+      }
+    );
   });
 
 
