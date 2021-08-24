@@ -4,12 +4,10 @@
 <h3 class="center-align flash-msg titles">{{ username }}'s profile.</h3>
 <p class="center-align">This is your profile where you can see all yor posted activities or modify them</p>
 
-
 <div class="container">
     <div class="section">
-     {% if uploads|length > 0 %}
         <div class="row">
-            {% for upload in uploads if session.client|lower == upload.uploaded_by|lower %}
+            {% for upload in uploads if session.client|lower == upload.uploaded_by|lower and uploads|length > 0 %}
             <div class="col s12 m6 l4">
                 <div class="card hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
@@ -43,25 +41,28 @@
                     </div>
                 </div>
             </div>
-               <!-- Modal -->
-                <div id="{{ upload._id }}" class="modal">
-                    <div class="modal-content">
-                        <h4>{{ username }},are you sure you want to delete activity?</h4>
-                        <p>Activity will be deleted permanently.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="{{ url_for('remove_activity', activity_id=upload._id) }}"
-                            class="modal-close waves-effect waves-green  btn red text-darken-3"> Delete</a>
-                        <a href="{{ url_for('welcome', username=session['client']) }}" class="modal-close waves-effect waves-green  btn blue text-darken-3">
-                            Do not Delete</a>
-                    </div>
+            <!-- Modal -->
+            <div id="{{ upload._id }}" class="modal">
+                <div class="modal-content">
+                    <h4>{{ username }},are you sure you want to delete activity?</h4>
+                    <p>Activity will be deleted permanently.</p>
                 </div>
-            {% endfor %} 
-        </div> 
+                <div class="modal-footer">
+                    <a href="{{ url_for('remove_activity', activity_id=upload._id) }}"
+                        class="modal-close waves-effect waves-green  btn red text-darken-3"> Delete</a>
+                    <a href="{{ url_for('welcome', username=session['client']) }}"
+                        class="modal-close waves-effect waves-green  btn blue text-darken-3">
+                        Do not Delete</a>
+                </div>
+            </div>
+        </div>
         {% else %}
-        <h3 class="red center-align">No Results Found</h3>
-     {% endif %} 
-     </div>
+         <h3 class="red center-align">{{ username }}! You don't have any activities posted yet.</h3>
+            <div class="col s12 m4 offset-m3 l3 offset-l4">
+                <a href="{{ url_for('upload')}}" class="yellow lighten-3 red-text btn-large center-align">Post your first Activity.</a>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
