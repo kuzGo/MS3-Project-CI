@@ -1,10 +1,14 @@
-body {
+/* body {
     background-color: #da1336b5;
     
-}
+} */
 .logo {
     height: 55px;
     width: 55px;
+    color: #f5e765;
+    font-family: 'Indie Flower',cursive;
+    vertical-align: middle;
+    margin-bottom: 10px;
 }
 .caption {
     background-color: rgb(232,14,14,0.6);
@@ -26,6 +30,7 @@ body {
     background-color:#f33616;
     border-color:#000;
     color:#000;
+    transition: all ease-in-out 0.5s;
 }
 .register-btn {
     background-color: #eb0a15;
@@ -60,6 +65,9 @@ body {
     background-attachment: fixed;
     width: 100%;
 }
+nav{
+    background-color: #00aeef;
+}
 nav ul a {
 font-size: 1.5rem!important;
 }
@@ -75,7 +83,11 @@ font-size: 1.5rem!important;
     text-transform: capitalize;
     color: #d11919;
     font-family: "Open Sans", sans-serif;
-
+    height: 54px;
+    line-height: 54px;
+    font-size: 15px;
+    padding: 0 28px;
+    border-radius: 32px;
 }
 
 .search-container {
@@ -89,10 +101,6 @@ font-size: 1.5rem!important;
     padding: 10px;
     transition: all ease-in-out 0.6s;
 }
-.search-container:hover {
-    width: 500px;
-    transition: all ease-in-out 0.6s;
-}
 
  input.search-text {
     border-bottom: none!important;
@@ -104,16 +112,7 @@ font-size: 1.5rem!important;
     transition: 0.4s;
     line-height: 40px;
 } 
-.search-button{
-    float: right;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background:#B71C1C;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
+
 .modal {
     /* https://pixabay.com/illustrations/illustration-child-clipart-graphics-2814002/ */
     background: url(../images/modal.png);
@@ -137,7 +136,7 @@ font-size: 1.5rem!important;
     height: 60vh;
 }
 .activity-text {
-    font-family: 'Coda Caption', sans-serif;
+    font-family: 'Indie Flower',cursive;
     font-size: 20px;
     color: #ac0b18;
     font-weight: bold;
@@ -150,4 +149,25 @@ font-size: 1.5rem!important;
 #banner{
     position: absolute;
     bottom: 0;
+}
+.card-headers {
+    color: #ec0808;
+    bottom: 57px;
+    left: 27px;
+    font-family: 'Indie Flower',cursive;
+    max-width: 100%;
+    padding: 24px;
+    text-transform: uppercase;
+    font-size: 32px;
+    position: absolute;
+}
+.titles {
+    font-size: 5.625rem;
+    font-family: 'Indie Flower',cursive;
+    color: #ec0808;
+}
+@media only screen and (max-width: 992px){
+    nav .logo {
+        font-size: 1.8rem;
+    }
 }
