@@ -59,7 +59,7 @@ def register():
 
         if current_user:
             flash(
-                "This username is already exists,try different username")
+                "This username is already in use.Try different username")
             return redirect(url_for("register"))
 
         register = {
@@ -113,7 +113,8 @@ def welcome(username):
     if session['client']:
         uploads = list(mongo.db.activities.find().sort("_id", 1))
         return render_template(
-            "welcome.html", username=username, uploads=uploads)
+                "welcome.html", username=username, uploads=uploads)
+
     return redirect(url_for("login"))
 
 
@@ -147,7 +148,6 @@ def upload():
 
 @app.route("/update_activity/<activity_id>", methods=["GET", "POST"])
 def update_activity(activity_id):
-
     """
     Updating activities is restricted to user currently logged in,
     or Admin user.
