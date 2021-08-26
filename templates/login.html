@@ -4,23 +4,25 @@
 <h3 class="center-align titles">Log In</h3>
 
     <div class="row bg-image" >
-        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login')}}">
-            <div class="card-panel">
+        <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('login')}}">
+            <div class="card-panel login-panel">
                 <!-- Username input field -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$"  data-length="20" required>
+                        <input id="username" name="username" type="text" class="validate" minlength="5" maxlength="20" 
+                        pattern="^[a-zA-Z0-9]{5,20}$"  title="Must be between 5 and 20 characters"  data-length="20" required>
                         <label for="username"><i class="material-icons">person</i></label>
                     </div>
                     <!-- Password input field -->
                     <div class="row">
                         <div class="input-field col s12 ">
-                            <input id="password" name="password" type="password" class="validate" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5,20}$" data-length="20" required>
+                            <input id="password" name="password" type="password" class="validate" minlength="5" maxlength="20" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}"
+                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" data-length="20" required>
                             <label for="password"> <i class="material-icons">password</i> </label>
                         </div>
                     </div>
                     <!-- Submit Button -->
-                    <button class="col s12 m2 offset-m5 btn-large waves-effect register-btn" type="submit" name="action">
+                    <button class="col s12 m6 offset-m3 btn-large waves-effect register-btn" type="submit" name="action">
                         Log In
                         <i class="material-icons left">login</i>
                     </button>
@@ -33,7 +35,7 @@
     <div class="col s12">
         <p class="center-align">
             Do not have an account yet? 
-            <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Register here</a>
+            <a href="{{ url_for('register') }}">Register here</a>
         </p>
     </div>
 </div>
