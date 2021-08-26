@@ -46,16 +46,16 @@
   </ul>
 </div>
 
-<div class="container">
+<div class="container" >
   <div class="section">
    <div class="col s12"> 
     <div class="row">
       <div class="col s12 m6 l4">
         <div class="card">
           <div class="card-image">
-            <img src="{{ url_for('static',filename='images/creativity.jpg') }}" alt="Photo of mother and daughter making neckles">
+            <img src="{{ url_for('static',filename='images/creativity.jpg') }}"  alt="Photo of mother and daughter making neckles">
             <!-- Photo by RODNAE Productions from Pexels -->
-            <span class="card-headers">
+            <span class="card-headers card-overlay">
              Creative Activities for Children
             </span>
              <a href="{{ url_for('get_activities')}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
@@ -71,7 +71,7 @@
           <div class="card-image">
             <img src="{{ url_for('static',filename='images/laptop.jpg') }}" alt="Image of parents and child with a laptop">
             <!-- pexels-elina-fairytale-4008773 -->
-            <span class="card-headers">
+            <span class="card-headers card-overlay">
               Screen time and young children 
             </span>
             <a href="{{ url_for('get_activities')}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
@@ -83,12 +83,12 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m6 l4">
+      <div class="col s12 m8 offset-m2 l4">
         <div class="card">
           <div class="card-image">
-            <img src="{{ url_for('static',filename='images/work-from-home.jpg') }}" alt="">
+            <img src="{{ url_for('static',filename='images/work-from-home.jpg') }}" alt="Image of women and girl with laptop">
             <!-- Photo by Ketut Subiyanto from Pexels -->
-            <span class="card-headers">
+            <span class="card-headers card-overlay">
               Are you working parents looking for creative ideas?
             </span>
             <a href="{{ url_for('get_activities')}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
@@ -104,11 +104,12 @@
   </div>
 </div>
 
-<!-- <div class="container"> -->
+ <div class="container">
   <div class="row">
     <div class="col s12">
       <img src="{{ url_for('static',filename='images/city.png') }}" alt="" id="city">
     </div>
   </div>
-<!-- </div> -->
+</div> 
+
 {% endblock %}

@@ -2,8 +2,6 @@
 {% block content %}
 
 <h3 class="center-align flash-msg titles">{{ username }}'s profile.</h3>
-<p class="center-align">This is your profile where you can see all yor posted activities or modify them</p>
-
 <div class="container">
     <div class="section">
         <div class="row">
@@ -58,7 +56,7 @@
         </div>
         {% else %}
          <h3 class="red center-align">{{ username }}! You don't have any activities posted yet.</h3>
-            <div class="col s12 m4 offset-m3 l3 offset-l4">
+            <div class="col center-align s12 m6 offset-m3">
                 <a href="{{ url_for('upload')}}" class="yellow lighten-3 red-text btn-large center-align">Post your first Activity.</a>
         </div>
         {% endfor %}
