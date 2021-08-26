@@ -53,13 +53,16 @@
                         Do not Delete</a>
                 </div>
             </div>
-        </div>
+
+            
         {% else %}
-         <h3 class="red center-align">{{ username }}! You don't have any activities posted yet.</h3>
-            <div class="col center-align s12 m6 offset-m3">
-                <a href="{{ url_for('upload')}}" class="yellow lighten-3 red-text btn-large center-align">Post your first Activity.</a>
+        <h3 class="center-align">{{ username }}! You don't have any activities posted yet.</h3>
+           <div class="col center-align s12 m6 offset-m3">
+               <a href="{{ url_for('upload')}}" class="yellow lighten-3 red-text btn-large center-align">Post your first Activity.</a>
+       </div>
+       {% endfor %}
         </div>
-        {% endfor %}
+
     </div>
 </div>
 
