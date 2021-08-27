@@ -113,7 +113,7 @@ def welcome(username):
     if session['client']:
         uploads = list(mongo.db.activities.find().sort("_id", 1))
         return render_template(
-                "welcome.html", username=username, uploads=uploads)
+            "welcome.html", username=username, uploads=uploads)
 
     return redirect(url_for("login"))
 
@@ -130,18 +130,23 @@ def logout():
 @login_required
 def upload():
     if request.method == 'POST':
-        activity = {
-            "category_type": request.form.get("category_type"),
-            "activity_name": request.form.get("activity_name"),
-            "activity_outcome": request.form.get("activity_outcome"),
-            "description": request.form.get("description"),
-            "necessities": request.form.get("necessities"),
-            "image_url": request.form.get("image_url"),
-            "uploaded_by": session["client"]
-        }
-        mongo.db.activities.insert_one(activity)
-        flash("Activity has been uploaded.")
-        return redirect(url_for("get_activities"))
+        existing_activity = mongo.db.activities.find_one(
+            {"activity_name": request.form.get("activity_name").lower()})
+
+        if existing_activity is None:
+            activtivity = {
+                "category_type": request.form.get("category_type"),
+                "activity_name": request.form.get("activity_name"),
+                "activity_outcome": request.form.get("activity_outcome"),
+                "description": request.form.get("description"),
+                "necessities": request.form.get("necessities"),
+                "image_url": request.form.get("image_url"),
+                "uploaded_by": session["client"]
+            }
+            mongo.db.activities.insert_one(activtivity)
+            flash("Activity has been uploaded.")
+            return redirect(url_for("get_activities"))
+
     categories = mongo.db.catogories.find().sort('category_type', 1)
     return render_template("upload.html", categories=categories)
 
