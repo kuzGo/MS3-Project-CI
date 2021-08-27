@@ -22,11 +22,10 @@ $(document).ready(function(){
       pointerEvents: 'none'
     });
     // End of credit
-    $('.flash-msg').click(
-      function(){
-        $(this).addClass('hide');
-      }
-    );
+    
+    setTimeout(function() {
+      $('.flash-msg').fadeOut('slow');
+    }, 3000);
   });
 
 
