@@ -26,7 +26,9 @@ $(document).ready(function(){
     setTimeout(function() {
       $('.flash-msg').fadeOut('slow');
     }, 3000);
-  });
 
+    $("#year").text(new Date().getFullYear());
+  });
+  
 
  
