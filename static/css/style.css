@@ -143,6 +143,8 @@ nav ul a:hover{
     height: 18.75rem;
     border-bottom-left-radius: 69px;
     border-end-start-radius: 100px;
+    -webkit-box-shadow: -9px 2px 4px var(--yellow-color);
+            box-shadow: -9px 2px 4px var(--yellow-color);
     box-shadow: -9px 2px 4px var(--yellow-color);
     border-start-start-radius: 32px;
     border-top-right-radius: 74px;
@@ -174,6 +176,8 @@ nav ul a:hover{
     cursor: pointer;
     border-bottom-left-radius: 69px;
     border-end-start-radius: 100px;
+    -webkit-box-shadow: -9px 2px 4px var(--yellow-color);
+            box-shadow: -9px 2px 4px var(--yellow-color);
     box-shadow: -9px 2px 4px var(--yellow-color);
     border-start-start-radius: 32px;
     border-top-right-radius: 74px;
@@ -207,7 +211,19 @@ nav ul a:hover{
     font-size: 16px;
     transition: 0.4s;
     line-height: 40px;
+}
+::-webkit-input-placeholder {
+    color: var(--title-color);
 } 
+::-moz-placeholder {
+    color: var(--title-color);
+} 
+:-ms-input-placeholder {
+    color: var(--title-color);
+} 
+::-ms-input-placeholder {
+    color: var(--title-color);
+}  
 ::placeholder,
 .dropdown-content li>a,
 .dropdown-content li>span,

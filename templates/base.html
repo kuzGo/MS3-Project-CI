@@ -22,118 +22,134 @@
     {% endblock %}
     <title>Growapps</title>
 </head>
-<header>
-    <nav>
-          <div class="nav-wrapper ">
-              <a href="{{ url_for('home')}}" class="brand-logo">
-                <img src="{{ url_for('static',filename='images/logo.png') }}" class="logo" alt="Website Logo"><span class="logo hide-on-small-only">Growapps&trade;</span>
-              </a>
-              
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons nav-icons">fingerprint</i></a>
-              <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('home')}}">
-                       Home
-                    </a>
-                </li>
-                {% if session.client %}
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper ">
+                <a href="{{ url_for('home')}}" class="brand-logo">
+                    <img src="{{ url_for('static',filename='images/logo.png') }}" class="logo" alt="Website Logo"><span
+                        class="logo hide-on-small-only">Growapps&trade;</span>
+                </a>
+
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
+                        class="material-icons nav-icons">fingerprint</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('home')}}">
+                            Home
+                        </a>
+                    </li>
+                    {% if session.client %}
                     <li><a href="{{ url_for('get_activities')}}">
                             Activities
                         </a>
                     </li>
                     <li><a href="{{ url_for('logout')}}" class="register-btn">
-                        Log Out
-                    </a>
-                </li>
-                
-                <li><a href="{{ url_for('welcome', username=session['client']) }}" class="btn login-btn">
-                My Profile
+                            Log Out
+                        </a>
+                    </li>
+
+                    <li><a href="{{ url_for('welcome', username=session['client']) }}" class="btn login-btn">
+                            My Profile
+                        </a>
+                    </li>
+                    <li><a href="{{ url_for('admin_page') }}">
+                            <i class="material-icons">admin_panel_settings</i>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li><a href="{{ url_for('login')}}" class="btn login-btn ">
+                            Log In
+                        </a>
+                    </li>
+                    <li><a href="{{ url_for('register')}}" class="register-btn">
+                            Register
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('home')}}"><i class="material-icons nav-icons left">home</i>Home</a></li>
+            {% if session.client %}
+            <li><a href="{{ url_for('get_activities')}}"><i
+                        class="material-icons nav-icons left">school</i>Activities</a></li>
+            <li><a href="{{ url_for('logout')}}"><i class="material-icons nav-icons left">logout</i>Log Out</a></li>
+            <li><a href="{{ url_for('welcome', username=session['client']) }}">
+                    <i class="material-icons nav-icons left">person</i> My Profile
                 </a>
             </li>
             <li><a href="{{ url_for('admin_page') }}">
-                <i class="material-icons">admin_panel_settings</i>
-                 </a>
-             </li>
-                {% else %}
-                    <li><a href="{{ url_for('login')}}" class="btn login-btn " >
-                        Log In
-                        </a>
-                    </li>
-                    <li><a href="{{ url_for('register')}}" class="register-btn" >
-                        Register
-                        </a>
-                    </li>
-                {% endif %}
-              </ul>
-          </div>
-      </nav>
-    
-      <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('home')}}"><i class="material-icons nav-icons left">home</i>Home</a></li>
-        {% if session.client %}
-            <li><a href="{{ url_for('get_activities')}}"><i class="material-icons nav-icons left">school</i>Activities</a></li>
-            <li><a href="{{ url_for('logout')}}"><i class="material-icons nav-icons left">logout</i>Log Out</a></li>
-            <li><a href="{{ url_for('welcome', username=session['client']) }}">
-                <i class="material-icons nav-icons left">person</i> My Profile
-            </a>
-        </li>
-        <li><a href="{{ url_for('admin_page') }}">
-            <i class="material-icons nav-icons">admin_panel_settings</i> Admin
-             </a>
-         </li>
-        {% else %}
+                    <i class="material-icons nav-icons">admin_panel_settings</i> Admin
+                </a>
+            </li>
+            {% else %}
             <li><a href="{{ url_for('login')}}"><i class="material-icons nav-icons left">login</i>Log In</a></li>
-            <li><a href="{{ url_for('register')}}"> <i class="material-icons nav-icons left">person_add</i>Register</a></li>
-        {% endif %}
-      </ul>   
-</header>
-<body>
-<!-- Displaying flash messages  -->
+            <li><a href="{{ url_for('register')}}"> <i class="material-icons nav-icons left">person_add</i>Register</a>
+            </li>
+            {% endif %}
+        </ul>
+    </header>
+
+    <!-- Displaying flash messages  -->
     <section>
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                  {% for message in messages %}
-                  <div class="col center-align s12 m6 offset-m3">
-                    <div class="row">
-                          <h4 class="center-align btn-large yellow lighten-3 flash-msg">{{ message }}</h4>
-                    </div>
-                </div>
-                  {% endfor %}
-                {% endif %}
-            {% endwith %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="col center-align s12 m6 offset-m3">
+            <div class="row">
+                <h4 class="center-align btn-large yellow lighten-3 flash-msg">{{ message }}</h4>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
     </section>
-    <main> 
+    <main>
         {% block content %}
 
         {% endblock %}
-    </main> 
-    <svg xmlns="http://www.w3.org/2000/svg" id="banner" viewBox="0 0 1440 320"><path fill="#00aeef" fill-opacity="1" d="M0,128L40,144C80,160,160,192,240,197.3C320,203,400,181,480,197.3C560,213,640,267,720,272C800,277,880,235,960,192C1040,149,1120,107,1200,117.3C1280,128,1360,192,1400,224L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
+    </main>
+    <svg xmlns="http://www.w3.org/2000/svg" id="banner" viewBox="0 0 1440 320">
+        <path fill="#00aeef" fill-opacity="1"
+            d="M0,128L40,144C80,160,160,192,240,197.3C320,203,400,181,480,197.3C560,213,640,267,720,272C800,277,880,235,960,192C1040,149,1120,107,1200,117.3C1280,128,1360,192,1400,224L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+        </path>
+    </svg>
     <footer class="page-footer">
-   
-       <div class="container">
-           <div class="row">
-               <div class="col l4 s12">
-                   <h5 class="yellow-text footer-title">Growapps&trade;</h5>
-               </div>
-               <div class=" center-align col l4 s12">
-                <img src="{{ url_for('static',filename='images/logo.png') }}" class="footer-logo" alt="Website Logo">
-               </div>
-               <div class="col l4 s12">
-                   <ul>
-                       <li><p class="links right-align">Useful links:</p></li>
-                       <li class="yellow-text right-align"><a class="yellow-text" href="https://first5.gov.ie/parents/pre-school-at-home" target="_blank" aria-label="Link to First5" rel="noopener" >First Five</a></li>
-                       <li class="yellow-text right-align"><a class="yellow-text" href="https://explorium.ie/" target="_blank" aria-label="Link to Explorium" rel="noopener" >Explorium</a></li>
-                   </ul>
-               </div>
-           </div>
-       </div>
-       <div class="footer-copyright">
-           <div class="container">
-              <span class="yellow-text" id="year"></span> 
-               <a href="https://www.linkedin.com/in/goran-kuzma/" aria-label="Link to Linkedin" rel="noopener" target="_blank" class="yellow-text text-lighten-3">&copy;Growapps&trade;</a>
-           </div>
-       </div>
-  
-   </footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="col l4 s12">
+                    <h5 class="yellow-text footer-title">Growapps&trade;</h5>
+                </div>
+                <div class=" center-align col l4 s12">
+                    <img src="{{ url_for('static',filename='images/logo.png') }}" class="footer-logo"
+                        alt="Website Logo">
+                </div>
+                <div class="col l4 s12">
+                    <ul>
+                        <li>
+                            <p class="links right-align">Useful links:</p>
+                        </li>
+                        <li class="yellow-text right-align"><a class="yellow-text"
+                                href="https://first5.gov.ie/parents/pre-school-at-home" target="_blank"
+                                aria-label="Link to First5" rel="noopener">First Five</a></li>
+                        <li class="yellow-text right-align"><a class="yellow-text" href="https://explorium.ie/"
+                                target="_blank" aria-label="Link to Explorium" rel="noopener">Explorium</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <span class="yellow-text" id="year"></span>
+                <a href="https://www.linkedin.com/in/goran-kuzma/" aria-label="Link to Linkedin" rel="noopener"
+                    target="_blank" class="yellow-text text-lighten-3">&copy;Growapps&trade;</a>
+            </div>
+        </div>
+
+    </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
