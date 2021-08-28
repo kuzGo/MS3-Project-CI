@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GrowappsTM, activities for children library. Join and get some ideas or share your own"> 
+    <meta name="keywords" content="Child development,Kids activities,Creative idea,playing,crafty"/>
     <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='images/logo.png')}}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='images/logo.png')}}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +29,7 @@
                 <img src="{{ url_for('static',filename='images/logo.png') }}" class="logo" alt="Website Logo"><span class="logo hide-on-small-only">Growapps&trade;</span>
               </a>
               
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">fingerprint</i></a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons nav-icons">fingerprint</i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('home')}}">
                        Home
@@ -65,21 +68,21 @@
       </nav>
     
       <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('home')}}">Home</a></li>
+        <li><a href="{{ url_for('home')}}"><i class="material-icons nav-icons left">home</i>Home</a></li>
         {% if session.client %}
-            <li><a href="{{ url_for('get_activities')}}">Activities</a></li>
-            <li><a href="{{ url_for('logout')}}">Log Out</a></li>
+            <li><a href="{{ url_for('get_activities')}}"><i class="material-icons nav-icons left">school</i>Activities</a></li>
+            <li><a href="{{ url_for('logout')}}"><i class="material-icons nav-icons left">logout</i>Log Out</a></li>
             <li><a href="{{ url_for('welcome', username=session['client']) }}">
-                My Profile
+                <i class="material-icons nav-icons left">person</i> My Profile
             </a>
         </li>
         <li><a href="{{ url_for('admin_page') }}">
-            <i class="material-icons">admin_panel_settings</i>
+            <i class="material-icons nav-icons">admin_panel_settings</i> Admin
              </a>
          </li>
         {% else %}
-            <li><a href="{{ url_for('login')}}">Log In</a></li>
-            <li><a href="{{ url_for('register')}}">Register</a></li>
+            <li><a href="{{ url_for('login')}}"><i class="material-icons nav-icons left">login</i>Log In</a></li>
+            <li><a href="{{ url_for('register')}}"> <i class="material-icons nav-icons left">person_add</i>Register</a></li>
         {% endif %}
       </ul>   
 </header>
@@ -117,8 +120,8 @@
                <div class="col l4 s12">
                    <ul>
                        <li><p class="links right-align">Useful links:</p></li>
-                       <li class="yellow-text right-align"><a class="yellow-text" href="https://first5.gov.ie/parents/pre-school-at-home" target="_blank">First Five</a></li>
-                       <li class="yellow-text right-align"><a class="yellow-text" href="https://explorium.ie/" target="_blank" >Explorium</a></li>
+                       <li class="yellow-text right-align"><a class="yellow-text" href="https://first5.gov.ie/parents/pre-school-at-home" target="_blank" aria-label="Link to First5" rel="noopener" >First Five</a></li>
+                       <li class="yellow-text right-align"><a class="yellow-text" href="https://explorium.ie/" target="_blank" aria-label="Link to Explorium" rel="noopener" >Explorium</a></li>
                    </ul>
                </div>
            </div>

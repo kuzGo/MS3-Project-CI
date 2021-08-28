@@ -11,7 +11,23 @@
 a {
     color:var(--title-color)
 }
-
+.sidenav {
+    background-color: var(--main-blue-color);
+    width: 85%;
+}
+.sidenav li>a {
+    display: block;
+    font-size: 28px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px;
+    margin-top: 48px;
+    color: var(--yellow-color);
+}
+.nav-icons {
+    color: var(--yellow-color)!important;
+}
 .logo {
     height: 55px;
     width: 55px;
@@ -23,10 +39,12 @@ a {
 .footer-logo{
     height: 120px;
     width: 120px;
+    
 }
 .footer-title{
     font-size: 58px;
     font-family: 'Open sans',sans-serif;
+    text-shadow: 20px 8px 19px black;
 }
 .links {
     color:var(--red-color);
