@@ -285,5 +285,4 @@ def error500(error):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            # As a reminder , change debug to False before submission
-            debug=True)
+            debug=False)
