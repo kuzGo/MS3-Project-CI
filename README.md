@@ -65,7 +65,7 @@ Growapps is aimed towards those interested in looking for a  place where they c
 - Web site footer
     * Company logo
     * Copyright 
-    * Useful liks
+    * Useful links
 - Login page
 - Register page
 - Error 404 page
@@ -113,6 +113,9 @@ In case that registered user attempts to access the admin page, they will not be
 
 ## Features Left to Implement
 <a name="leftfeatures"/>
+- CATCHA during registration proccess for increased security.
+- Implementing Google,Facebook or possibly more applications OAuth.
+- Pagination if datasets increase.
 
 ## Database Design
 <a name="dbdesign"/>
@@ -277,11 +280,11 @@ I found the code for Materialize's select validation [here](http://jsfiddle.net/
 
 ## Acknowledgements
 <a name="ack"/>
-- I wanted to thank[ Nishant Kumar(https://github.com/nishant8BITS)], for all the support and pieces of advice during mentoring sessions on how to improve the project.
+- I wanted to thank[ Nishant Kumar](https://github.com/nishant8BITS), for all the support and pieces of advice during mentoring sessions on how to improve the project.
 - Code Institute for equipping me with the skills and knowledge to complete this project.
 - Friends and family for support,motivation and creating activity datasets.
 - Some parts of the README.md file have been used in my previous project.
-- Amy O'Shea, Slack channel lead who helped me with Jinja `for loop` bugs.
+- Amy O'Shea, Slack channel lead who helped me with Jinja for loop bug.
 - Yigit who tested my app and pointed out a few issues on Slack's peer-code-review channel.
 
 ### Site is for educational purposes
