@@ -101,7 +101,7 @@ In case that registered user attempts to access the admin page, they will not be
 - Add category button
     * Ability to add a new activity category.
 
-- Color scheme
+## Color scheme
     * Color palette for the website has been generated using [Colormind](http://colormind.io).
     Carefully selected color scheme with the idea in mind to create harmonious and aesthetically pleasing website where users would want to remain longer.
 
@@ -113,6 +113,7 @@ In case that registered user attempts to access the admin page, they will not be
 
 ## Features Left to Implement
 <a name="leftfeatures"/>
+
 - CATCHA during registration proccess for increased security.
 - Implementing Google,Facebook or possibly more applications OAuth.
 - Pagination if datasets increase.
@@ -280,7 +281,8 @@ I found the code for Materialize's select validation [here](http://jsfiddle.net/
 
 ## Acknowledgements
 <a name="ack"/>
-- I wanted to thank[ Nishant Kumar](https://github.com/nishant8BITS), for all the support and pieces of advice during mentoring sessions on how to improve the project.
+
+-  I wanted to thank [Nishant Kumar](https://github.com/nishant8BITS), for all the support and pieces of advice during mentoring sessions on how to improve the project.
 - Code Institute for equipping me with the skills and knowledge to complete this project.
 - Friends and family for support,motivation and creating activity datasets.
 - Some parts of the README.md file have been used in my previous project.
