@@ -102,7 +102,8 @@ In case that registered user attempts to access the admin page, they will not be
     * Ability to add a new activity category.
 
 ## Color scheme
-    * Color palette for the website has been generated using [Colormind](http://colormind.io).
+
+* Color palette for the website has been generated using [Colormind](http://colormind.io).
     Carefully selected color scheme with the idea in mind to create harmonious and aesthetically pleasing website where users would want to remain longer.
 
  <p><img src="static/docs/color-scheme-ms3.PNG" style="min-width:100%" height="200" alt="Color scheme"></p>
@@ -291,5 +292,5 @@ I found the code for Materialize's select validation [here](http://jsfiddle.net/
 
 ### Site is for educational purposes
 
-[Back To Top](#totop)
+[:arrow_up:](#totop)
 

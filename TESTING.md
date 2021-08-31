@@ -257,3 +257,55 @@ When the plus button is clicked there are two possible outcomes:
 </details>  
 
 - If the user already has a registered account , they can click the link below, which will lead to the login page.
+
+- Activities page:
+
+Activities page has major functionalities within the website. It contains :
+1. Search bar     
+    - Search button
+    - When clicked searches for activities matching the user inputs or returns "No results found".
+    - Add activity button
+    - When clicked, the user is redirected to an input form where they can fill the required fields and add activity.
+
+4. All activities displayed  with the image and text content:   
+    - Activity title    
+    - View activity putton, when clicked, redirects the user to the single page view.    
+    - Horizontal view more icon, when clicked , opens the text content along with Remove and Update buttons.
+5. Remove button, when clicked , prompts the user to modal popup for their action confirmation
+6. Update button, when clicked, the user is redirected to a form when if they are owners or privileged with admin right can edit all parts of the activity.
+
+
+- Admin page:
+
+Admin has the highest privileges. Admin's age consists of :
+
+1. Add New Category Button, when clicked, this button prompts admin to an input form where they have the ability to add a new activity category.
+
+<details>
+<br>
+<p><img src="static/docs/admin-category.PNG" style="min-width:60%" height="400" alt="Activities"></p>
+</details>  
+
+2. All currently available Activity categories displayed with remove and update buttons.
+
+<details>
+<br>
+<p><img src="static/docs/admin-page.PNG" style="min-width:60%" height="400" alt="Activities"></p>
+</details>  
+
+3. Update button, when clicked gives the ability to Admin to edit existing activity, e.g. Early Mathematics can be changed to Early Maths etc.
+
+<details>
+<br>
+<p><img src="static/docs/admin-update.PNG" style="min-width:60%" height="400" alt="Activities"></p>
+</details>  
+
+4. Remove button , when clicked by an admin will remove any activity categories currently available, these will no longer be available to users to select.
+
+<details>
+<br>
+<p><img src="static/docs/admin-delete.PNG" style="min-width:60%" height="400" alt="Activities"></p>
+</details>
+
+Admin has the privileges to remove and update all activities from different users.
+
