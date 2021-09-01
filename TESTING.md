@@ -1,4 +1,6 @@
 # Testing :
+<a name="totop"/>
+
 
 At various stages of the project development I have been using extensive testing of the website.Main tools used to test the website are Google Dev Tools,Firefox Dev Tools . To validate the code  I have been using W3C Markup Validator, W3C CSS Validator - PEP8 Online to ensure proper indentation and full PEP8 compliance. During development The [Built-In Flask's Debugger](https://flask.palletsprojects.com/en/2.0.x/debugging/) was set to `True` so the code has been refactored on multiple occasions should any errors occurred.
 
@@ -198,13 +200,13 @@ Lighthouse desktop report:
 
 As part of functionality testing the developer tested every part of the website to ensure that everything is working properly on different types of devices and screen sizes. Browsers that the website has been tested on are as follows:Google Chrome, Firefox, Microsoft Edge and Safari on Apple devices.Testing of the website was conducted on numerous devices that I and my close relatives and friends own,these are as follows : Samsung S10E, Samsung S20,Samsung A52 Pixel3a,iPhone XS. Laptop Google Pixelbook and Desktop screen sizes all report no issues.
 
-- Navigation bar:
+#### Navigation bar:
 1. When the company logo is clicked it will bring the user to the home/landing page regardless of what page the user visits.
 2. The Home button will change the text color to red when hovered over. When clicked it will bring the user to the homepage. 
 3. The Login button is styled slightly differently than the other two buttons to emphasise it's functionality.When hovered over it'll change the text and background color, when clicked it'll bring the user to the Login page.
 4. The Register button is styled slightly differently than the other two buttons to emphasise it's functionality and bring the user's attention and click register. When hovered over it will change the background and text color and when clicked it will bring the user to the register page.
 
-- Homepage:
+#### Homepage:
 1. Image sliders, is a full width of the screen with indicator showing which item is displayed.Each photo consists of text content describing the purpose of the website.
 - Three card panels with the image and informative text content , inviting users to register.
 When the plus button is clicked there are two possible outcomes:
@@ -243,7 +245,7 @@ When the plus button is clicked there are two possible outcomes:
 <p><img src="static/docs/password2.PNG" style="min-width:60%" height="400" alt="Activities"></p>
 </details>  
 
-- Register page:
+#### Register page:
 
 - The register page is dominant across the entire page with a number of functionalities.
 - Register form indicates to the user that password and  username must be between 5 and 20 characters. 
@@ -258,24 +260,59 @@ When the plus button is clicked there are two possible outcomes:
 
 - If the user already has a registered account , they can click the link below, which will lead to the login page.
 
-- Activities page:
+#### Activities page:
 
 Activities page has major functionalities within the website. It contains :
 1. Search bar     
     - Search button
+
+    
+
+    <video width="320" height="240" controls>
+     <source src='static/docs/buttons.mp4' type="video/mp4">
+    </video>
+
     - When clicked searches for activities matching the user inputs or returns "No results found".
+
+    <video width="320" height="240" controls>
+     <source src='static/docs/nothing-found.mp4' type="video/mp4">
+    </video>
+
     - Add activity button
     - When clicked, the user is redirected to an input form where they can fill the required fields and add activity.
 
 4. All activities displayed  with the image and text content:   
     - Activity title    
-    - View activity putton, when clicked, redirects the user to the single page view.    
+
+    - View activity putton, when clicked, redirects the user to the single page view.  
+
+
+    <video width="320" height="240" controls>
+    <source src='static/docs/view-single.mp4' type="video/mp4">
+    </video>
+      
+
+
     - Horizontal view more icon, when clicked , opens the text content along with Remove and Update buttons.
+
+
+
+    <video width="320" height="240" controls>
+     <source src='static/docs/view-more.mp4' type="video/mp4">
+    </video>
+
+
+
 5. Remove button, when clicked , prompts the user to modal popup for their action confirmation
+
+    <video width="320" height="240" controls>
+     <source src='static/docs/delete.mp4' type="video/mp4">
+    </video>
+
 6. Update button, when clicked, the user is redirected to a form when if they are owners or privileged with admin right can edit all parts of the activity.
 
 
-- Admin page:
+#### Admin page:
 
 Admin has the highest privileges. Admin's age consists of :
 
@@ -309,3 +346,9 @@ Admin has the highest privileges. Admin's age consists of :
 
 Admin has the privileges to remove and update all activities from different users.
 
+
+#### Known Issues:
+- Currently, website visitors can add activities with a URL which is not an image URL. This will lead to text content displaying without an image. My attempts to solve this issue were ``import re`` and trying to create more complex regular expression in Python, however the code would throw an error all the time. I tried to look for a bit of advice on Slack and from Tutor support , but due to the close deadline it will have to be left for further development.
+- When the flash message fades out, the entire page looks like it jumps a bit, since it does not affect functionality it will be further developed.
+
+[:arrow_up:](#totop)
