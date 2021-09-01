@@ -178,8 +178,8 @@ Create a fully CRUD compliant app where users have ability to create, read, upda
 - [**PEP8 online**](http://pep8online.com/) used during post deployment testing stage to ensure PEP8 requirement.
 - [**Am I Responsive**](http://ami.responsivedesign.is/) used during post deployment testing stage.
 - [**Pixlr**](https://pixlr.com) used to remove background and editing photographs.
+- [Ezgif](https://ezgif.com/video-to-gif) used to covert videos to gif format.
 
-## Project Wireframe Link :
 <a name="wireframe"/>
 
 To see Project Wireframes please click the link: 

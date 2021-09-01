@@ -266,17 +266,17 @@ Activities page has major functionalities within the website. It contains :
 1. Search bar     
     - Search button
 
-    
-
-    <video width="320" height="240" controls>
-     <source src='static/docs/buttons.mp4' type="video/mp4">
-    </video>
+    <details>
+    <br>
+    <p><img src="static/docs/buttons.gif" style="min-width:60%" height="400" alt="Activities"></p>
+    </details> 
 
     - When clicked searches for activities matching the user inputs or returns "No results found".
 
-    <video width="320" height="240" controls>
-     <source src='static/docs/nothing-found.mp4' type="video/mp4">
-    </video>
+    <details>
+    <br>
+    <p><img src="static/docs/nothing-found.gif" style="min-width:60%" height="400" alt="Activities"></p>
+    </details> 
 
     - Add activity button
     - When clicked, the user is redirected to an input form where they can fill the required fields and add activity.
@@ -287,27 +287,27 @@ Activities page has major functionalities within the website. It contains :
     - View activity putton, when clicked, redirects the user to the single page view.  
 
 
-    <video width="320" height="240" controls>
-    <source src='static/docs/view-single.mp4' type="video/mp4">
-    </video>
+    <details>
+    <br>
+    <p><img src="static/docs/view-single.gif" style="min-width:60%" height="400" alt="Activities"></p>
+    </details> 
       
-
 
     - Horizontal view more icon, when clicked , opens the text content along with Remove and Update buttons.
 
 
-
-    <video width="320" height="240" controls>
-     <source src='static/docs/view-more.mp4' type="video/mp4">
-    </video>
-
-
+    <details>
+    <br>
+    <p><img src="static/docs/view-more.gif" style="min-width:60%" height="400" alt="Activities"></p>
+    </details> 
+   
 
 5. Remove button, when clicked , prompts the user to modal popup for their action confirmation
 
-    <video width="320" height="240" controls>
-     <source src='static/docs/delete.mp4' type="video/mp4">
-    </video>
+    <details>
+    <br>
+    <p><img src="static/docs/delete.gif" style="min-width:60%" height="400" alt="Activities"></p>
+    </details> 
 
 6. Update button, when clicked, the user is redirected to a form when if they are owners or privileged with admin right can edit all parts of the activity.
 
