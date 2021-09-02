@@ -57,7 +57,7 @@ Hey @Goran, nice project! Couple things caught my eye tho; Some of the images l
 - Results of CSS code validation:
       - Code shows no errors.Note: Warnings are due to prefixes added using Autoprefixer to ensure cross-browser compatibility.     
 
-   <a href="static/docs/W3C CSS Validator.pdf" target="_blank" >Link to CSS Validation PDF Document</a>
+   <a href="static/docs/W3C-CSS-Validator.pdf" target="_blank" >Link to CSS Validation PDF Document</a>
 
    <p>
     <a href="http://jigsaw.w3.org/css-validator/check/referer">
