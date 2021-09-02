@@ -7,7 +7,13 @@
     --logo-color:#f5e765;
     --title-color:#ec0808;
     --login-panel:#f1e066d1;
+    --placeholder:#cca3a3;
+    --reg-button:#ff6600;
+    --register:#eb0a15;
+    --border:#f33616;
+    --activity:#ac0b18;
 }
+
 a {
     color:var(--title-color)
 }
@@ -65,24 +71,26 @@ a {
     background-color: transparent;
     border-radius: 36px;
     border-style: solid;
-    border-color: #f33616;
+    border-color: var(--border);
     text-transform: capitalize;
     line-height: 25px;
+    font-weight: 700;
     color: var(--logo-color)
 }
 .login-btn:hover,
 .learn-more--btn:hover,
 .register-btn:hover {
-    background-color:#f33616;
+    background-color:var(--border);
     border-color:#000;
     color:#000;
     transition: all ease-in-out 0.5s;
 }
 .register-btn {
-    background-color: #eb0a15;
+    background-color: var(--register);
     border-radius: 36px;
     border-style: solid;
-    border-color: #ff6600;
+    border-color:var(--reg-button);
+    font-weight: 700;
     text-transform: capitalize;
     line-height: 35px;
     margin-top: 12px;
@@ -92,7 +100,7 @@ a {
     background-color:var(--logo-color);
     border-radius: 36px;
     border-style: solid;
-    border-color: #ff6600;
+    border-color: var(--reg-button);
     text-transform: capitalize;
     line-height: 35px;
     margin-top: 12px;
@@ -201,42 +209,36 @@ nav ul a:hover{
     font-size: 15px;
     padding: 0 28px;
     border-radius: 32px;
+}
 
-}
- input.search-text {
-    border-bottom: none!important;
-    width: 80%!important;
-    height: 26px!important;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-}
 ::-webkit-input-placeholder {
-    color: var(--title-color);
+    color: var(--placeholder);
 } 
 ::-moz-placeholder {
-    color: var(--title-color);
+    color: var(--placeholder);
 } 
 :-ms-input-placeholder {
-    color: var(--title-color);
+    color: var(--placeholder);
 } 
 ::-ms-input-placeholder {
-    color: var(--title-color);
+    color: var(--placeholder);
 }  
 ::placeholder,
 .dropdown-content li>a,
 .dropdown-content li>span,
 .select-wrapper input.select-dropdown {
-    color: var(--title-color);
+    color: var(--placeholder);
 }
 /* Adds padding to Materialize's class validate */
- .validate {
+.validate {
     padding-left:20px!important;
 }
 .input-field {
     padding-right: 50px!important;
+}
+/* Makes name and url input fields the same size  */
+.col-half {
+    width: 96.666667%!important;
 }
 .modal {
     /* https://pixabay.com/illustrations/illustration-child-clipart-graphics-2814002/ */
@@ -250,7 +252,6 @@ nav ul a:hover{
 .modal .modal-footer {
     background-color: transparent;
     text-align: center;
-   
 }
 .modal .modal-content {
     text-align: center;
@@ -263,44 +264,43 @@ nav ul a:hover{
 .activity-text {
     font-family: 'Indie Flower',cursive;
     font-size: 20px;
-    color: #ac0b18;
+    color: var(--activity);
     font-weight: bold;
 }
 .activity-content {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.28rem;
-    color:#00aeef ;
+    color: var(--main-blue-color);
 }
 #banner{
     margin-bottom: -6px;
 }
 .profile-header {
-    color: #ec0808;
+    color: var(--title-color);
     text-transform: capitalize;
     font-size: 1.9rem;
     line-height: 110%;
     margin: 1.9466666667rem 0 4.168rem 0;
 }
-
-
 .titles {
     font-size: 5.625rem;
     font-family: 'Indie Flower',cursive;
-    color: #ec0808;
+    color: var(--title-color);
     text-transform: capitalize;
 }
 .page-footer {
-    background-color: #00aeef;
+    background-color: var(--main-blue-color);
 }
+/* media query for reducing sizes on mobile devices */
 @media only screen and (max-width: 992px){
     nav .logo {
         font-size: 1.8rem;
     }
     .titles {
-        font-size: 3.625rem;
+        font-size: 2.625rem;
     }
     .profile-header {
-        color: #ec0808;
+        color:var(--title-color);
         text-transform: capitalize;
         font-size: 1rem;
         line-height: 110%;
@@ -316,5 +316,8 @@ nav ul a:hover{
     .activity-image {
         width: 100%;
         height: 35vh;
+    }
+    .col-half {
+        width: 93.666667%!important;
     }
 }
