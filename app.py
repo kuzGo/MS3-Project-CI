@@ -18,6 +18,9 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# Creates a decorator for additional level
+# of security
+
 
 def login_required(f):
     @wraps(f)
@@ -39,6 +42,9 @@ def home():
 @app.route("/get_activities")
 @login_required
 def get_activities():
+    """
+     Renders all activities uploaded by users.
+    """
     activities = list(mongo.db.activities.find())
     return render_template("activities.html", activities=activities)
 
@@ -46,6 +52,10 @@ def get_activities():
 @app.route("/search", methods=["GET", "POST"])
 @login_required
 def search():
+    """
+    Searching for the list of activvities in the DB
+    and renders to the user.
+    """
     query = request.form.get("query")
     activities = list(mongo.db.activities.find({"$text": {"$search": query}}))
     return render_template("activities.html", activities=activities)
@@ -53,6 +63,11 @@ def search():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Checks if username is already in use.
+    If so notifies the user,otherwise inserts the user to the DB.
+
+    """
     if request.method == "POST":
         current_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -81,6 +96,12 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Checks if user is already registered.
+    if so notifies the user and redirects to the user's profile.
+    Checks that entered username and password matches the DB.
+    If matches user is loged in,otherwise redirects to login page.
+    """
     if request.method == "POST":
         registered_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -106,7 +127,10 @@ def login():
 
 @app.route("/welcome/<username>", methods=["GET", "POST"])
 def welcome(username):
-
+    """
+    Finds username from the DB and checks if username
+    matches then renders all username's activities
+    """
     username = mongo.db.users.find_one(
         {"username": session["client"]})['username']
 
@@ -121,6 +145,10 @@ def welcome(username):
 @app.route("/logout")
 @login_required
 def logout():
+    """
+    Pops cliet's session and
+    redirects to login page
+    """
     flash("You're sucessfully logged out")
     session.pop('client')
     return redirect(url_for("login"))
@@ -129,6 +157,10 @@ def logout():
 @app.route("/upload", methods=['GET', 'POST'])
 @login_required
 def upload():
+    """
+    Checks if activity already exists, if not,adds activity,
+    otherwise redirects the user to Activity page.
+    """
     if request.method == 'POST':
         existing_activity = mongo.db.activities.find_one(
             {"activity_name": request.form.get("activity_name").lower()})

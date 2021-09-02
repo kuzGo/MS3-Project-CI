@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  // Materialize Initialization classes
     $('.sidenav').sidenav();
     $('.slider').slider();
     $('select').formSelect();
