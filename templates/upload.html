@@ -5,7 +5,7 @@
   <h3 class="center-align titles">Upload Activity</h3>
 </div>
 
-<div class="row">
+<div class="row container">
     <form action="{{ url_for('upload')}}" method="POST" class="col s12 l6 offset-l3">
       <div class="row">
         <div class="input-field col s12 l6 offset-l3">
@@ -20,7 +20,7 @@
       </div> 
       <!-- Activity name inputs -->
       <div class="row">
-          <div class="input-field col s12 l12">
+          <div class="input-field col s12 l12 col-half">
               <input placeholder="Activity Name" id="activity_name" name="activity_name" maxlength="20" type="text" class="validate" data-length="20" required>
               <label for="activity_name">Activity Name</label>
             </div>
@@ -48,7 +48,7 @@
               </div>
               <!-- Image URL input -->
               <div class="row">
-                <div class="input-field col s12 l12" >
+                <div class="input-field col s12 l12 col-half" >
                   <input placeholder="Image URL" id="image_url" pattern="https?://.+" name="image_url" type="url" class="validate" required>
                   <label for="image_url">Image URL</label>
                   <span class="helper-text" data-error="wrong URL" data-success="correct">Must be valid image URL</span> 
